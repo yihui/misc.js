@@ -1,6 +1,7 @@
 ((d) => {
+  const cls_list = 'faq-list', cls_clicked = 'faq-clicked';
   function faq(el) {
-    el.classList.add('faq-list');
+    el.classList.add(cls_list);
 
     const btn = d.createElement('span');
     let status = false;
@@ -10,16 +11,22 @@
       status = !status;
       this.innerText = status ? '⊖' : '⊕';
       for (const li of el.children) {
-        li.classList.toggle('faq-clicked', status);
+        li.classList.toggle(cls_clicked, status);
       }
     };
     el.before(btn);
 
     for (const li of el.children) {
       li.onclick = function(e) {
-        this.classList.toggle('faq-clicked');
+        this.classList.toggle(cls_clicked);
       };
     }
   }
-  faq(d.querySelector('ol'));
+
+  for (const ol of d.querySelectorAll('ol')) {
+    // ignore lists in footnotes
+    if (ol.parentElement.classList.contains('footnotes')) continue;
+    let ls = ol.classList;
+    (ls.length === 0 || ls.contains(cls_list)) && faq(ol);
+  }
 })(document);
