@@ -1,0 +1,13 @@
+.faq-list > li, .faq-button {
+  cursor: pointer;
+}
+.faq-list > li > :first-child {
+  display: block;
+}
+.faq-list > :not(.faq-clicked) > * {
+  display: none;
+}
+.faq-button {
+  float: right;
+  margin-left: 1em;
+}

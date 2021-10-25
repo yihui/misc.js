@@ -1,0 +1,23 @@
+{
+  "name": "@xiee/faq",
+  "version": "1.0.0",
+  "description": "Turn an ordered list on an HTML page into a collapsible FAQ list",
+  "main": "faq.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yihui/faq.js.git"
+  },
+  "keywords": [
+    "faq",
+    "ui"
+  ],
+  "author": "Yihui Xie <xie@yihui.name> (https://yihui.org)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yihui/faq.js/issues"
+  },
+  "homepage": "https://github.com/yihui/faq.js#readme"
+}
