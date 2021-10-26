@@ -1,6 +1,6 @@
 ((d) => {
   const cls_list = 'faq-list', cls_clicked = 'faq-clicked';
-  function faq(el) {
+  function faq(el, id) {
     el.classList.add(cls_list);
 
     const btn = d.createElement('span');
@@ -16,17 +16,28 @@
     };
     el.before(btn);
 
-    for (const li of el.children) {
+    const lis = el.children;
+    for (let i = 0; i < lis.length; i++) {
+      let li = lis[i], hash = 'faq-' + (id ? id + '-' : '') + (i + 1);
+      li.firstElementChild.innerHTML += ' <span class="anchor" id="' + hash +
+        '"><a href="#' + hash + '">#</a></span>';
+      if (location.hash === '#' + hash) {
+        li.scrollIntoView();
+        li.classList.add(cls_clicked);
+      }
       li.onclick = function(e) {
         this.classList.toggle(cls_clicked);
       };
     }
   }
 
-  for (const ol of d.querySelectorAll('ol')) {
-    // ignore lists in footnotes
-    if (ol.parentElement.classList.contains('footnotes')) continue;
+  // ignore lists in footnotes
+  const ols = d.querySelectorAll(['div', 'main', 'section', 'article'].map(
+    (x) => x + ':not(.footnotes) > ol'
+  ).join(','));
+  for (let i = 0; i < ols.length; i++) {
+    let ol = ols[i];
     let ls = ol.classList;
-    (ls.length === 0 || ls.contains(cls_list)) && faq(ol);
+    (ls.length === 0 || ls.contains(cls_list)) && faq(ol, ols.length > 1 ? i + 1 : 0);
   }
 })(document);

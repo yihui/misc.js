@@ -1,6 +1,6 @@
 {
   "name": "@xiee/faq",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Turn an ordered list on an HTML page into a collapsible FAQ list",
   "main": "faq.js",
   "scripts": {
