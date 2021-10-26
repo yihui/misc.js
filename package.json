@@ -1,0 +1,27 @@
+{
+  "name": "@xiee/utils",
+  "version": "1.0.0",
+  "description": "Miscellaneous tools and utilities to manipulate HTML pages",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yihui/misc.js.git"
+  },
+  "keywords": [
+    "html",
+    "image",
+    "mathjax",
+    "faq",
+    "ui",
+    "toc",
+    "link"
+  ],
+  "author": "Yihui Xie <xie@yihui.name> (https://yihui.org)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yihui/misc.js/issues"
+  },
+  "homepage": "https://github.com/yihui/misc.js#readme"
+}
