@@ -11,3 +11,9 @@
   float: right;
   margin-left: 1em;
 }
+.faq-list .anchor {
+  display: none;
+}
+.faq-list > li:hover > .anchor {
+  display: inline;
+}
