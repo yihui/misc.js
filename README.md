@@ -4,8 +4,8 @@ are published as an NPM package
 via [jsdelivr.com](https://www.jsdelivr.com), e.g.,
 
 ``` html
-<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/faq.min.js" async></script>
-<link href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/faq.min.css" rel="stylesheet"></link>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils/js/faq.min.js" async></script>
+<link href="https://cdn.jsdelivr.net/npm/@xiee/utils/css/faq.min.css" rel="stylesheet"></link>
 ```
 
 See the full documentation at <https://yihui.org/en/2018/11/md-js-tricks/>.
@@ -78,4 +78,3 @@ class, so that highlight.js will not try to syntax highlight the code in it.
 
 Right-align a `<blockquote>` footer if the footer is a `<p>` that starts with
 the em-dash.
-
