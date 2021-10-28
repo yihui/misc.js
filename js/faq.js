@@ -1,7 +1,17 @@
 ((d) => {
   const cls_list = 'faq-list', cls_clicked = 'faq-clicked';
   function faq(el, id) {
-    el.classList.add(cls_list);
+    // each child of the list must have at least 2 child elements (one question
+    // and one answer)
+    const lis = el.children;
+    if (lis.length === 0) return;
+    for (let li of lis) {
+      if (li.childElementCount < 2) return;
+    }
+    
+    let ls = el.classList;
+    if (ls.length > 0 && !ls.contains(cls_list)) return;
+    ls.add(cls_list);
 
     // a button to collapse/expand all FAQs
     const btn = d.createElement('span');
@@ -18,7 +28,6 @@
     el.before(btn);
 
     // add anchor links after questions
-    const lis = el.children;
     for (let i = 0; i < lis.length; i++) {
       let li = lis[i], hash = 'faq-' + (id ? id + '-' : '') + (i + 1);
       li.firstElementChild.innerHTML += ' <span class="anchor" id="' + hash +
@@ -40,7 +49,6 @@
   ).join(','));
   for (let i = 0; i < ols.length; i++) {
     let ol = ols[i];
-    let ls = ol.classList;
-    (ls.length === 0 || ls.contains(cls_list)) && faq(ol, ols.length > 1 ? i + 1 : 0);
+    faq(ol, ols.length > 1 ? i + 1 : 0);
   }
 })(document);
