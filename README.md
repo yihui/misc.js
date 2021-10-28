@@ -1,10 +1,10 @@
 This repo contains miscellaneous tools and utilities written in JavaScript. They
 are published as an NPM package
-[`@xiee@utils`](https://www.npmjs.com/package/@xiee/utils). You can load them
+[`@xiee/utils`](https://www.npmjs.com/package/@xiee/utils). You can load them
 via [jsdelivr.com](https://www.jsdelivr.com), e.g.,
 
 ``` html
-<script src="https://cdn.jsdelivr.net/npm/@xiee/utils/js/faq.min.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils/js/faq.min.js" defer></script>
 <link href="https://cdn.jsdelivr.net/npm/@xiee/utils/css/faq.min.css" rel="stylesheet"></link>
 ```
 
