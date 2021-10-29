@@ -30,14 +30,15 @@
     // add anchor links after questions
     for (let i = 0; i < lis.length; i++) {
       let li = lis[i], hash = 'faq-' + (id ? id + '-' : '') + (i + 1);
-      li.firstElementChild.innerHTML += ' <span class="anchor" id="' + hash +
+      let p = li.firstElementChild;
+      p.innerHTML += ' <span class="anchor" id="' + hash +
         '"><a href="#' + hash + '">#</a></span>';
       if (location.hash === '#' + hash) {
         li.scrollIntoView();
         li.classList.add(cls_clicked);
       }
-      li.onclick = function(e) {
-        this.classList.toggle(cls_clicked);
+      p.onclick = function(e) {
+        li.classList.toggle(cls_clicked);
       };
     }
   }
