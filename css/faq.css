@@ -1,8 +1,9 @@
-.faq-list > li, .faq-button {
+.faq-button {
   cursor: pointer;
 }
 .faq-list > li > :first-child {
   display: block;
+  cursor: pointer;
 }
 .faq-list > :not(.faq-clicked) > * {
   display: none;
@@ -16,4 +17,14 @@
 }
 .faq-list > li:hover > .anchor {
   display: inline;
+}
+.faq-list > li {
+  border: 1px solid #eee;
+}
+.faq-list > li > :first-child {
+  background: #fafafa;
+  margin: 0;
+}
+.faq-list > li > * {
+  padding: .5em;
 }
