@@ -45,7 +45,8 @@ top-right to expand or collapse all answers. Each FAQ item has an anchor (shown
 as the `#` symbol at the end on mouseover) that provides the link to the
 specific question.
 
-Note that you will need to load `faq.css` accordingly.
+Note that you will need to load `faq.css` accordingly. See [a more detailed
+introduction here](https://yihui.org/en/2021/10/faq-list/).
 
 ## fix-footnote.js
 
