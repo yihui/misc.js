@@ -8,6 +8,9 @@
     const s = d.createElement(el.parentNode.nodeName === 'P' ? 'span' : 'p');
     s.className = 'hash-note';
     s.innerText = t.replace(r, '$1');
+    s.innerHTML = s.innerHTML
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
+      .replace(/(?<!")(https?:\/\/)([-a-zA-Z0-9%._#=/\+]+)/g, '<a href="$1$2" target="_blank">$2</a>');
     el.before(s);
     el.remove();
   };
