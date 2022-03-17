@@ -1,6 +1,6 @@
-(function() {
+(function(d) {
   function fix_footnote(tagName) {
-    var tags = document.getElementsByTagName(tagName), i, tag, tag2, n = 1, href;
+    let tags = d.getElementsByTagName(tagName), i, tag, tag2, n = 1, href;
     for (i = 0; i < tags.length; i++) {
       tag = tags[i];
       if (tagName === 'sup') {
@@ -25,4 +25,8 @@
     }
   }
   fix_footnote('sup'); fix_footnote('li');
-})();
+  // move the return symbol into the previous <p>
+  d.querySelectorAll('.footnotes > ol > li > p ~ .footnote-return').forEach(el => {
+    el.previousElementSibling.lastChild.after(el);
+  });
+})(document);
