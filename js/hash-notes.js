@@ -10,8 +10,7 @@
     s.innerText = t.replace(r, '$1');
     s.innerHTML = s.innerHTML
       .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
-      .replace(/(?<!")(https?:\/\/)([-a-zA-Z0-9%._#=/\+]+)/g, '<a href="$1$2" target="_blank">$2</a>')
-      .replace(/(>[^#]+#)([^<]+)(<\/a>)/g, '$1$3');
+      .replace(/(?<!")(https?:\/\/)([-a-zA-Z0-9%._=/\+]+)(#)?([-a-zA-Z0-9%._=\+]+)?/g, '<a href="$1$2$3$4" target="_blank">$2$3</a>');
     el.before(s);
     el.remove();
   };
