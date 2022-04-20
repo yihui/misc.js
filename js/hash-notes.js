@@ -9,8 +9,8 @@
     s.className = 'hash-note';
     s.innerText = t.replace(r, '$1');
     s.innerHTML = s.innerHTML
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
-      .replace(/(^|[^"])(https?:\/\/)([-a-zA-Z0-9%._=/\+]+)(#)?([-a-zA-Z0-9%._=\+]+)?/g, '$1<a href="$2$3$4$5" target="_blank">$3$4</a>');
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+      .replace(/(^|[^"])(https?:\/\/)([-a-zA-Z0-9%._=/\+]+)(#)?([-a-zA-Z0-9%._=\+]+)?/g, '$1<a href="$2$3$4$5">$3$4</a>');
     el.before(s);
     el.remove();
   };
