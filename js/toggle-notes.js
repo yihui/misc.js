@@ -2,7 +2,7 @@
   if (!d.body.classList.contains('has-notes')) return;
   const h = d.querySelector('.title > hr');
   if (!h) return;
-  const s = sessionStorage.getItem('hide-notes');
+  let s = sessionStorage.getItem('hide-notes');
   h.classList.add('toggle-notes');
   h.onclick = function(e) {
     s === null && !/^(localhost|[0-9.]+)$/.test(location.hostname) &&
