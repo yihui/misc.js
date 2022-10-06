@@ -77,6 +77,22 @@
       selectTab2();
     };
   };
+  s.onload = function(e) {
+    // if Disqus comment count is zero, just get rid of the Disqus tab
+    var dc = d.getElementById('disqus_count');
+    if (!dc) return;
+    var s3 = d.createElement('script');
+    s3.src = '//yihui.disqus.com/count.js';
+    s3.id = 'dsq-count-scr';
+    t.appendChild(s3);
+    new MutationObserver(() => {
+      if (dc.innerText == '' || dc.innerText > 0) return;
+      selectTab2(); loadScript();
+      a.append(a.querySelector('#tab-2 ~ .panel'));
+      a.querySelector('.tabs').remove();
+      a.querySelector('.panel').style.display = 'block';
+    }).observe(dc, {characterData: true, childList: true});
+  };
   // show comments when the hash means to jump to a comment
   if (location.hash.match(/^#comment-[0-9]+$/)) return l(true);
   var c = function() {
