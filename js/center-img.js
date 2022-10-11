@@ -27,4 +27,9 @@
   for (var i = 0; i < tagNames.length; i++) {
     center_el(tagNames[i]);
   }
+  // also center paragraphs that contain `* * *`
+  var ps = document.getElementsByTagName('p');
+  for (var i = 0; i < ps.length; i++) {
+    if (ps[i].innerText === '* * *') ps[i].style.textAlign = 'center';
+  };
 })();
