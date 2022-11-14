@@ -70,6 +70,11 @@ style the notes or hide/show them as you wish.
 Add anchor links to all section headers (e.g., `<h2>`) that have nonempty `id`
 attributes.
 
+## load-highlight.js
+
+Disable highlight.js's auto language detection, and then apply highlighting.
+This requires highlight.js to be loaded in advance.
+
 ## math-code.js
 
 Write LaTeX math expressions (`$\alpha$`) in `<code></code` in HTML or a pair of
