@@ -1,0 +1,9 @@
+kbd {
+  border: 2px solid;
+  box-shadow: 2px 2px;
+  display: inline-block;
+  padding: 0 5px;
+  border-radius: 0.25em;
+  min-width: 1.5em;
+  text-align: center;
+}

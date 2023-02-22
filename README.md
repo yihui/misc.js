@@ -70,6 +70,13 @@ style the notes or hide/show them as you wish.
 Add anchor links to all section headers (e.g., `<h2>`) that have nonempty `id`
 attributes.
 
+## key-buttons.js
+
+Find keyboard keys in `<code></code>` and convert the tag to `<kbd></kbd>`,
+e.g., convert `<code>Ctrl + C</code>` to `<kbd>Ctrl</kbd>` + `<kbd>C</kbd>`.
+With `key-buttons.css`, the keys will be styled as boxes with shadows like
+buttons.
+
 ## load-highlight.js
 
 Disable highlight.js's auto language detection, and then apply highlighting.
