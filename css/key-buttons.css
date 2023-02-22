@@ -6,6 +6,7 @@ kbd {
   border-radius: 0.25em;
   min-width: 1.5em;
   text-align: center;
+  margin-right: .15em;
 }
 kbd:hover {
   position: relative;
