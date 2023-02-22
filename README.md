@@ -75,7 +75,8 @@ attributes.
 Find keyboard keys in `<code></code>` and convert the tag to `<kbd></kbd>`,
 e.g., convert `<code>Ctrl + C</code>` to `<kbd>Ctrl</kbd>` + `<kbd>C</kbd>`.
 With `key-buttons.css`, the keys will be styled as boxes with shadows like
-buttons.
+buttons. You can learn more details [in this
+post](https://yihui.org/en/2023/02/key-buttons/).
 
 ## load-highlight.js
 
