@@ -50,9 +50,7 @@ introduction here](https://yihui.org/en/2021/10/faq-list/).
 
 ## fix-footnote.js
 
-Fix links to/from footnotes rendered by lower versions of Hugo (Blackfriday)
-when footnotes do not contain any ASCII characters, in which case Hugo is unable
-to render unique `id`s for the footnote items (the `id` is `fn:-`).
+Add `[ ]` to footnote numbers and move the return symbols in footnotes.
 
 ## fix-toc.js
 
