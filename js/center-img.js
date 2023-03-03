@@ -1,4 +1,4 @@
-(function() {
+(function(d) {
   function one_child(el) {
     if (el.childElementCount !== 1) return false;
     const nodes = el.childNodes;
@@ -10,7 +10,7 @@
     return true;
   }
   function center_el(tagName) {
-    document.querySelectorAll(tagName).forEach(tag => {
+    d.querySelectorAll(tagName).forEach(tag => {
       let parent = tag.parentElement;
       // center an image if it is the only element of its parent
       if (one_child(parent)) {
@@ -33,7 +33,7 @@
   }
   ['img', 'embed', 'object'].forEach(tag => center_el(tag));
   // also center paragraphs that contain `* * *`
-  document.querySelectorAll('p').forEach(p => {
+  d.querySelectorAll('p').forEach(p => {
     if (p.innerText === '* * *') p.style.textAlign = 'center';
   });
-})();
+})(document);
