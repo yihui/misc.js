@@ -10,17 +10,15 @@
     return true;
   }
   function center_el(tagName) {
-    var tags = document.getElementsByTagName(tagName), i, tag;
-    for (i = 0; i < tags.length; i++) {
-      tag = tags[i];
-      var parent = tag.parentElement;
+    document.querySelectorAll(tagName).forEach(tag => {
+      let parent = tag.parentElement;
       // center an image if it is the only element of its parent
       if (one_child(parent)) {
         // if there is a link on image, check grandparent
-        var parentA = parent.nodeName === 'A';
+        const parentA = parent.nodeName === 'A';
         if (parentA) {
           parent = parent.parentElement;
-          if (!one_child(parent)) continue;
+          if (!one_child(parent)) return;
           parent.firstElementChild.style.border = 'none';
         }
         if (parent.nodeName === 'P') {
@@ -31,15 +29,11 @@
           }
         }
       }
-    }
+    });
   }
-  var tagNames = ['img', 'embed', 'object'];
-  for (var i = 0; i < tagNames.length; i++) {
-    center_el(tagNames[i]);
-  }
+  ['img', 'embed', 'object'].forEach(tag => center_el(tag));
   // also center paragraphs that contain `* * *`
-  var ps = document.getElementsByTagName('p');
-  for (var i = 0; i < ps.length; i++) {
-    if (ps[i].innerText === '* * *') ps[i].style.textAlign = 'center';
-  };
+  document.querySelectorAll('p').forEach(p => {
+    if (p.innerText === '* * *') p.style.textAlign = 'center';
+  });
 })();
