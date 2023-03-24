@@ -1,4 +1,2 @@
-(function() {
-  hljs.configure({languages: []});
-  hljs.highlightAll ? hljs.highlightAll() : hljs.initHighlightingOnLoad();
-})();
+hljs.configure({languages: []});
+hljs.highlightAll ? hljs.highlightAll() : hljs.initHighlightingOnLoad();
