@@ -93,6 +93,11 @@ expressions (by default, MathJax ignores math in `<code>`).
 Add the `nohighlight` class to `<code>` in `<pre>` when it does not have a
 class, so that highlight.js will not try to syntax highlight the code in it.
 
+## render-katex.js
+
+Simply run `renderMathInElement(document.body)` to render math expression using
+KaTeX's auto-render extension.
+
 ## right-quote.js
 
 Right-align a `<blockquote>` footer if the footer is a `<p>` that starts with
