@@ -16,10 +16,10 @@
   // create a new script and change attribute 'data-src' to 'src' (to actually load the script)
   const s = a.querySelector('script[data-src]');
   if (!s) return;
-  const r = s.dataset.src, s2 = d.createElement('script'), b = s.attributes;
-  for (let i = 0; i < b.length; i++) {
-    s2.setAttribute(b[i].name, b[i].value);
-  }
+  const r = s.dataset.src, s2 = d.createElement('script');
+  [...s.attributes].forEach(b => {
+    s2.setAttribute(b.name, b.value);
+  });
   s2.src = r;
   s.remove();
   a.appendChild(s2);

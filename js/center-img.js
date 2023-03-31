@@ -24,14 +24,13 @@
         if (parent.nodeName === 'P') {
           parent.style.textAlign = 'center';
           if (!parentA && tagName === 'img') {
-            parent.innerHTML = '<a href="' + tag.src + '" style="border: none;">' +
-              tag.outerHTML + '</a>';
+            parent.innerHTML = `<a href="${tag.src}" style="border: none;">${tag.outerHTML}</a>`;
           }
         }
       }
     });
   }
-  ['img', 'embed', 'object'].forEach(tag => center_el(tag));
+  ['img', 'embed', 'object'].forEach(center_el);
   // also center paragraphs that contain `* * *`
   d.querySelectorAll('p').forEach(p => {
     if (p.innerText === '* * *') p.style.textAlign = 'center';
