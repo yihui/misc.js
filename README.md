@@ -63,9 +63,9 @@ Convert HTML comments of the form `<!--# comments -->` to
 document body will gain classes `has-notes` and `hide-notes`. You can use CSS to
 style the notes or hide/show them as you wish.
 
-## header-link.js
+## heading-anchor.js
 
-Add anchor links to all section headers (e.g., `<h2>`) that have nonempty `id`
+Add anchor links to all section headings (e.g., `<h2>`) that have nonempty `id`
 attributes.
 
 ## key-buttons.js
