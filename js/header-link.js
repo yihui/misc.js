@@ -1,5 +1,5 @@
 (function() {
-  var h, hs = document.querySelectorAll('article h1, article h2, article h3');
+  var h, hs = document.querySelectorAll('h1,h2,h3');
   for (var i = 0; i < hs.length; i++) {
     h = hs[i];
     if (h.id === '') continue;
