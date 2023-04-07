@@ -1,0 +1,140 @@
+body, blockquote, .side, .menu { background: #fafafa; }
+.article, .body, .appendix { position: relative; }
+.article-list, .body, .single main, .single .appendix, .body ~ .appendix, .frontmatter, .fullwidth, .embed-left, .embed-right {
+  margin-top: 2em;
+  padding: 1em;
+  box-shadow: 0 0 8px #ccc;
+  background: #fff;
+}
+.article-meta { background: #f8f8f8; }
+.article-meta .terms, .appendix, .footnotes, main .side > *, .body .side, figcaption, .caption { font-size: .9em; }
+.single .appendix, .body ~ .appendix, .frontmatter { background: none; }
+.appendix h2 { border-bottom: 1px dashed #666; }
+#TOC { top: 0; }
+#TOC ul { list-style-position: inside; }
+#TOC > ul {
+  padding: 0;
+  margin: 0;
+}
+#TOC li > ul { padding-left: 1em; }
+#TOC .numbered { list-style: none; }
+.bg-number {
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: lightslategray;
+  color: #fff;
+}
+
+/* left/right elements*/
+.side {
+  width: 200px;
+  margin: 0 auto;
+}
+.side-left {
+  float: left;
+  clear: left;
+  margin-left: calc(-200px - 2em);
+  position: sticky;
+}
+.side-right {
+  float: right;
+  clear: right;
+  margin-right: calc(-200px - 2em);
+}
+.quote-left, .quote-right { width: 45%; }
+.embed-left, .embed-right {
+  margin-top: auto;
+  padding: 0;
+}
+.quote-left, .embed-left {
+  float: left;
+  margin-right: 1em;
+}
+.quote-right, .embed-right {
+  float: right;
+  margin-left: 1em;
+}
+.embed-left { margin-left: calc(-200px - 2em); }
+.embed-right { margin-right: calc(-200px - 2em); }
+.side > :first-child, .embed-left > :first-child, .embed-right > :first-child { margin-top: 0; }
+.embed-left > :last-child, .embed-right > :last-child { margin-bottom: 0; }
+.quote-left > :first-child, .quote-right > :first-child { padding-top: .1px; }
+.quote-left > :last-child, .quote-right > :last-child { padding-bottom: .1px; }
+
+/* wide elements */
+.fullwidth, .fullwidth * { margin: auto 0; }
+.fullwidth * { max-width: calc(100vw - 4em); }
+.fullscroll * { max-width: initial; }
+.fullwidth {
+  max-width: calc(100vw - 2em);
+  margin: 1em 0 1em 50%;
+  transform: translateX(-50%);
+  float: left;
+  min-width: 100%;
+  background: #fff;
+}
+.fullscroll, .fullscroll figure, .fullscroll .figure { overflow-x: auto; }
+.fullwidth figcaption, .fullwidth .caption {
+  margin-left: calc(50% - 400px);
+  width: 800px;
+  padding: 1em 1em 0;
+}
+
+@media (min-width: 1280px) {
+  .note-ref { cursor: pointer; }
+  .note-ref:hover ~ .side {
+    display: inline-block;
+    background-color: #f8f8f8;
+    position: absolute;
+    margin-left: 1em;
+    padding: .5em;
+    box-sizing: content-box;
+  }
+}
+@media (max-width: 1280px) {
+  #TOC {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 1em;
+    position: initial;
+  }
+  .side { width: 100%; }
+  main .side, .body .side {
+    padding: 0 2em;
+    color: darkslategray;
+  }
+  .side-left, .side-right {
+    clear: both;
+    margin: 1em auto;
+    background: none;
+  }
+  .note-ref ~ .side { margin-left: 100vw; }
+  .side > :last-child { margin-bottom: 0; }
+  .embed-left, .embed-right {
+    float: inherit;
+    margin: auto;
+    padding: 1em;
+  }
+}
+@media (max-width: 800px) {
+  body { padding: initial; }
+  main, .body { padding: 0 .5em 0; }
+  .quote-left, .quote-right {
+    width: inherit;
+    float: inherit;
+    margin: auto;
+  }
+  .fullwidth:not(.fullscroll) * { max-width: 100%; }
+  .fullwidth {
+    margin: initial;
+    transform: initial;
+    float: none;
+    min-width: initial;
+    background: none;
+    border: none;
+  }
+  .fullwidth figcaption, .fullwidth .caption {
+    margin: initial;
+    padding: initial;
+  }
+}
