@@ -6,7 +6,7 @@
   const hs = b.querySelectorAll('h1, h2, h3, h4, h5, h6');
   if (hs.length === 0) return;
 
-  var toc = b.getElementById('TOC');
+  var toc = d.getElementById('TOC');
   toc?.remove();  // delete and rebuild TOC if it has been generated (e.g., by Pandoc)
   toc = d.createElement('div');
   toc.id = 'TOC';
