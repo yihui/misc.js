@@ -47,5 +47,5 @@
   b.insertBefore(toc, b.firstChild);
 
   // check if headings are numbered
-  toc.querySelector('span.section-number') && toc.classList.add('numbered');
+  toc.querySelector('span.section-number') && toc.firstElementChild.classList.add('numbered');
 })(document);
