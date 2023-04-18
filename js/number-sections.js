@@ -1,8 +1,10 @@
 // add section numbers to headings
 (d => {
   // find the body of the article
-  const b = d.querySelector('.article, .body, article, body');
-  if (!b) return;
+  let b;
+  ['.article', '.body', 'article', 'body'].forEach(s => {
+    if (!b) b = d.querySelector(s);
+  });
   const hs = b.querySelectorAll('h1, h2, h3, h4, h5, h6');
   if (hs.length === 0) return;
   // normalize Pandoc's .header-section-number class to .section-number
