@@ -4,3 +4,7 @@ document.querySelectorAll('pre[class]:not([class^=language-])').forEach(el => {
   el.firstElementChild?.classList.add(`language-${el.classList[0]}`);
   el.removeAttribute('class');
 });
+document.querySelectorAll('table').forEach(el => {
+  el.getAttribute('style') === 'width:100%;' && el.removeAttribute('style');
+  el.querySelector('colgroup')?.remove();
+});
