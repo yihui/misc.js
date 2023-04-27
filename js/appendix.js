@@ -7,9 +7,9 @@
   const a = d.createElement('div');
   a.className = 'appendix';
   a.append(h.cloneNode(true));
-  h.parentNode.after(a);
   while(h.nextSibling) {
     a.append(h.nextSibling);
   }
+  h.parentNode.tagName === 'BODY' ? d.body.append(a) : h.parentNode.after(a);
   h.remove();
 })(document);
