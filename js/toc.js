@@ -5,7 +5,7 @@
   ['.article', '.body', 'article', 'body'].forEach(s => {
     if (!b) b = d.querySelector(s);
   });
-  const hs = b.querySelectorAll('h1, h2, h3, h4, h5, h6');
+  const hs = b.querySelectorAll([1, 2, 3, 4, 5, 6].map(i => `:scope > h${i}`).join(','));
   if (hs.length === 0) return;
 
   var toc = d.getElementById('TOC');
