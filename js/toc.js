@@ -44,7 +44,9 @@
     p.appendChild(a);
     t0 = t1;
   });
-  b.insertBefore(toc, b.firstChild);
+  // if there is <header> in the article body, insert TOC after it
+  const header = b.querySelector('header');
+  header ? header.after(toc) : b.insertBefore(toc, b.firstChild);
 
   // check if headings are numbered
   toc.querySelector('span.section-number') && toc.firstElementChild.classList.add('numbered');
