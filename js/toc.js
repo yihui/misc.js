@@ -8,10 +8,13 @@
   const hs = b.querySelectorAll([1, 2, 3, 4, 5, 6].map(i => `:scope > h${i}`).join(','));
   if (hs.length === 0) return;
 
-  var toc = d.getElementById('TOC');
-  toc?.remove();  // delete and rebuild TOC if it has been generated (e.g., by Pandoc)
-  toc = d.createElement('div');
-  toc.id = 'TOC';
+  let toc = d.getElementById('TOC');
+  if (toc) {
+    toc.innerHTML = ''; // empty and rebuild TOC if it has been generated (e.g., by Pandoc)
+  } else {
+    toc = d.createElement('div');
+    toc.id = 'TOC';
+  }
 
   let li, ul;
   let p = toc;  // the current parent into which we insert child TOC items
@@ -44,9 +47,11 @@
     p.appendChild(a);
     t0 = t1;
   });
-  // if there is <header> in the article body, insert TOC after it
-  const header = b.querySelector('header');
-  header ? header.after(toc) : b.insertBefore(toc, b.firstChild);
+  if (!toc.parentNode) {
+    // if there is <header> in the article body, insert TOC after it
+    const header = b.querySelector('header');
+    header ? header.after(toc) : b.insertBefore(toc, b.firstChild);
+  }
 
   // check if headings are numbered
   toc.querySelector('span.section-number') && toc.firstElementChild.classList.add('numbered');
