@@ -5,7 +5,7 @@ via [jsdelivr.com](https://www.jsdelivr.com), e.g.,
 
 ``` html
 <script src="https://cdn.jsdelivr.net/npm/@xiee/utils/js/faq.min.js" defer></script>
-<link href="https://cdn.jsdelivr.net/npm/@xiee/utils/css/faq.min.css" rel="stylesheet"></link>
+<link href="https://cdn.jsdelivr.net/npm/@xiee/utils/css/faq.min.css" rel="stylesheet">
 ```
 
 See the full documentation at <https://yihui.org/en/2018/11/md-js-tricks/>.
