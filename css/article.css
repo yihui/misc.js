@@ -82,7 +82,7 @@ body, blockquote, .side, .menu { background: #fafafa; }
 
 @media (min-width: 1280px) {
   .note-ref { cursor: pointer; }
-  .note-ref:hover ~ .side {
+  .note-ref:hover + .side {
     display: inline-block;
     background-color: #f8f8f8;
     position: absolute;
@@ -108,7 +108,7 @@ body, blockquote, .side, .menu { background: #fafafa; }
     margin: 1em auto;
     background: none;
   }
-  .note-ref ~ .side { margin-left: 100vw; }
+  .note-ref + .side { margin-left: 100vw; }
   .side > :last-child { margin-bottom: 0; }
   .embed-left, .embed-right {
     float: inherit;
