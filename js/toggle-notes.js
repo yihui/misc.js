@@ -1,6 +1,6 @@
 (function(d) {
   if (!d.body.classList.contains('has-notes')) return;
-  const h = d.querySelector('.title > hr');
+  const h = d.querySelector('.author');
   if (!h) return;
   let s = sessionStorage.getItem('hide-notes');
   h.classList.add('toggle-notes');
