@@ -1,6 +1,6 @@
 [...document.getElementsByTagName('code')].forEach(code => {
   if (code.parentNode.tagName === 'PRE' || code.childElementCount > 0) return;
-  const text = code.textContent;
+  let text = code.textContent;
   if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
     text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
     code.textContent = text;
