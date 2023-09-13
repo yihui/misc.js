@@ -5,7 +5,7 @@
     // add _blank target to external links
     a.target = '_blank';
     // shorten bare links
-    if (a.childElementCount === 0) {
+    if (a.childElementCount === 0 && r.test(a.innerText)) {
       a.innerText = a.innerText.replace(r, '').replace(/(.+)#.*$/, '$1');
     }
   })
