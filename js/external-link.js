@@ -7,7 +7,7 @@
     }
     // shorten bare links
     if (a.childElementCount === 0) {
-      a.innerText = a.innerText.replace(r, '').replace(/#.*$/, '');
+      a.innerText = a.innerText.replace(r, '').replace(/(.+)#.*$/, '$1');
     }
   })
 })(document);
