@@ -62,6 +62,12 @@ Find `<pre>`, `<table>`, and TOC (with ID `TableOfContents`) elements and add
 the `fullwidth` class to them if they are too wide, so they can be styled
 differently (e.g., [full bleed](https://css-tricks.com/full-bleed/)).
 
+## fuse-search.js
+
+Perform client-side site searching via [Fuse.js](https://www.fusejs.io). See
+[this post](https://yihui.org/en/2023/09/fuse-search/) for an application to
+Hugo sites.
+
 ## hash-notes.js
 
 Convert HTML comments of the form `<!--# comments -->` to
