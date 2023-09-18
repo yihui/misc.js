@@ -70,7 +70,7 @@
   output.innerHTML = '';
   function search() {
     if (!fuse) return;
-    let res, sec, u;
+    let res, sec, a;
     output.innerHTML = '';
     // display search results in <section> and highlight keywords
     for (res of fuse.search(input.value, {'limit': lim})) {
