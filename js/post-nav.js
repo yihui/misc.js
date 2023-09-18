@@ -1,13 +1,13 @@
-// navigate to previous/next posts by Left/Right arrows
+// navigate to previous/next posts by Left/Right arrows, and Alt + <-/-> for back/forward
 (function(d) {
   const a1 = d.querySelector('.nav-prev > a'), a2 = d.querySelector('.nav-next > a');
   d.addEventListener('keyup', function(e) {
     if (e.target.nodeName.toUpperCase() != 'BODY') return;
     let u;
-    if (a1 && e.which == 37) {  // Left arrow
-      u = a1.href;
-    } else if (a2 && e.which == 39) {  // Right arrow
-      u = a2.href;
+    if (e.key === 'ArrowLeft') {
+      e.altKey ? history.back() : (a1 && (u = a1.href));
+    } else if (e.key == 'ArrowRight') {
+      e.altKey ? history.forward() : (a2 && (u = a2.href));
     }
     if (u) window.location = u;
   });
