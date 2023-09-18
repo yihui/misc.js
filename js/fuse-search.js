@@ -70,12 +70,11 @@
   output.innerHTML = '';
   function search() {
     if (!fuse) return;
-    let res, sec, a;
     output.innerHTML = '';
     // display search results in <section> and highlight keywords
-    for (res of fuse.search(input.value, {'limit': lim})) {
-      sec = tpl.cloneNode(true);
-      a = sec.querySelector('a');
+    for (let res of fuse.search(input.value, {'limit': lim})) {
+      const sec = tpl.cloneNode(true);
+      const a = sec.querySelector('a');
       a.href = res.item.uri;
       a.innerHTML = highlight(res, 'title', len);
       sec.querySelector('.search-preview').innerHTML = highlight(res, 'content', len);
