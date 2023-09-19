@@ -1,4 +1,4 @@
-(function(d) {
+(d => {
   const r = /^(https?:)?\/\//;
   d.querySelectorAll('a').forEach(a => {
     if (!r.test(a.getAttribute('href'))) return;

@@ -1,5 +1,5 @@
 // navigate to previous/next posts by Left/Right arrows, and Alt + <-/-> for back/forward
-(function(d) {
+(d => {
   const a1 = d.querySelector('.nav-prev > a'), a2 = d.querySelector('.nav-next > a');
   d.addEventListener('keyup', function(e) {
     if (e.target.nodeName.toUpperCase() != 'BODY') return;

@@ -1,4 +1,4 @@
-(function(d) {
+(d => {
   function one_child(el) {
     if (el.childElementCount !== 1) return false;
     const nodes = el.childNodes;

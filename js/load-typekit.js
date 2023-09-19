@@ -1,4 +1,4 @@
-(function(d) {
+(d => {
   // https://www.kirupa.com/html5/detect_whether_font_is_installed.htm
   var canvas = d.createElement("canvas");
   var context = canvas.getContext("2d");

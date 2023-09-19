@@ -1,5 +1,5 @@
 // convert <!--# comments --> to <span class="hash-notes">comments</span>
-(function(d) {
+(d => {
   function toSpan(el) {
     const t = el.textContent, r = /^#[\s\n]+([\s\S]+)[\s\n]+$/;
     if (!r.test(t)) return;

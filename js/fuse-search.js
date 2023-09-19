@@ -1,5 +1,5 @@
 // perform searching via Fuse.js with data from /index.json
-(function(d) {
+(d => {
   const input = d.querySelector('#search-input'),
        output = d.querySelector('.search-results');
   if (!input || !output) return;

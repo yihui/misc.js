@@ -1,5 +1,5 @@
 // highlight a TOC item when scrolling to a corresponding section heading
-(function(d) {
+(d => {
   // assume TOC has these possible IDs (we can also consider other selectors)
   const toc = d.querySelector('#TableOfContents, #TOC');
   if (!toc) return;

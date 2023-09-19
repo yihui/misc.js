@@ -1,4 +1,4 @@
-(function(d) {
+(d => {
   if (!d.body.classList.contains('has-notes')) return;
   const h = d.querySelector('.author');
   if (!h) return;

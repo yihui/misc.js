@@ -1,4 +1,4 @@
-((d) => {
+(d => {
   const cls_list = 'faq-list', cls_clicked = 'faq-clicked';
   function faq(el, id) {
     // each child of the list must have at least 2 child elements (one question
