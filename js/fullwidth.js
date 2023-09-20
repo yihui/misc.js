@@ -6,7 +6,7 @@ document.querySelectorAll('pre,table,#TableOfContents').forEach(node => {
   switch (node.tagName) {
     case 'PRE':
       const el = node.firstElementChild;
-      el?.tagName === 'CODE' && el.scrollWidth > el.offsetWidth && fullwidth(el);
+      el?.tagName === 'CODE' && el.scrollWidth > el.offsetWidth && fullwidth(el.parentNode);
       break;
     case 'TABLE':
       const p = node.parentElement;
