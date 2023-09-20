@@ -1,9 +1,9 @@
 // fold elements with <details>: https://yihui.org/en/2023/09/code-folding/
 (d => {
-  const cfg = d.currentScript?.dataset, cls = 'folder';
+  const cfg = d.currentScript?.dataset, cls = 'folder'; let status = !!cfg?.open;
   d.querySelectorAll(cfg?.selector || 'pre>code[class],pre[class]').forEach(el => {
     const s1 = d.createElement('details'), s2 = d.createElement('summary');
-    s1.className = cls; s1.open = cfg?.open;
+    s1.className = cls; s1.open = status;
     s2.innerText = (cfg?.label || 'Details') + (cfg?.tagName ? ` <${el.tagName}>` : '');
     // special case: for <code>, put its parent <pre> inside <details>
     if (el.tagName === 'CODE' && el.parentNode.tagName === 'PRE') el = el.parentNode;
@@ -24,8 +24,9 @@
     p.insertAdjacentElement(cfg.position || 'afterbegin', btn);
   }
   btn.onclick = (e) => {
+    status = !status;
     d.querySelectorAll(`details.${cls}`).forEach(el => {
-      el.toggleAttribute('open');
+      el.toggleAttribute('open', status);
     });
   };
 })(document);
