@@ -26,7 +26,7 @@
   btn.onclick = (e) => {
     status = !status;
     d.querySelectorAll(`details.${cls}`).forEach(el => {
-      el.toggleAttribute('open', status);
+      el.open = status;
     });
   };
 })(document);
