@@ -1,0 +1,21 @@
+.copy-button {
+  position: absolute;
+  display: none;
+  cursor: pointer;
+  inset: 5px 5px auto auto;
+  width: 1em;
+  height: 1em;
+  border: 1px solid;
+  box-shadow: -3px 3px #999;
+}
+:hover > .copy-button {
+  display: inline-block;
+}
+.copy-success {
+  box-shadow: none;
+  background-color: #999;
+  transition: box-shadow 300ms ease-out, background-color 300ms ease-out;
+}
+.copy-fail {
+  border-style: dotted;
+}

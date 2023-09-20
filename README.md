@@ -32,6 +32,11 @@ Then the image will have a tooltip on mouseover.
 Center `<img>`, `<video>`, and `<object>` on a page if they are the only child
 of their parent element.
 
+## copy-button.js
+
+Add a copy button to any element (by default, `<pre>` code blocks) on a page.
+See [this post](https://yihui.org/en/2023/09/copy-button/) for details.
+
 ## external-link.js
 
 If a link of `<a>` does not start with `http://` or `https://`, add the
