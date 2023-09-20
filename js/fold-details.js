@@ -20,7 +20,7 @@
   if (!btn) {
     btn = d.createElement('button');
     btn.id = 'toggle-all';
-    btn.innerText = cfg.label || 'Toggle Details';
+    btn.innerText = cfg.buttonLabel || 'Toggle Details';
     p.insertAdjacentElement(cfg.position || 'afterbegin', btn);
   }
   btn.onclick = (e) => {
