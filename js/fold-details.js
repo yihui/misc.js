@@ -20,13 +20,17 @@
   if (!btn) {
     btn = d.createElement('button');
     btn.id = 'toggle-all';
-    btn.innerText = cfg.buttonLabel || 'Toggle Details';
     p.insertAdjacentElement(cfg.position || 'afterbegin', btn);
+  }
+  const l1 = cfg.buttonLabel || 'Show Details', l2 = cfg.buttonLabel2 || 'Hide Details';
+  function setText() {
+    btn.innerText = status ? l2 : l1;
   }
   btn.onclick = (e) => {
     status = !status;
     d.querySelectorAll(`details.${cls}`).forEach(el => {
       el.open = status;
     });
+    setText();
   };
 })(document);
