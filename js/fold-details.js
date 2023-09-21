@@ -26,6 +26,7 @@
   function setText() {
     btn.innerText = status ? l2 : l1;
   }
+  setText();
   btn.onclick = (e) => {
     status = !status;
     d.querySelectorAll(`details.${cls}`).forEach(el => {
