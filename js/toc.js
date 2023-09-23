@@ -8,7 +8,7 @@
   const hs = b.querySelectorAll([1, 2, 3, 4, 5, 6].map(i => `:scope > h${i}`).join(','));
   if (hs.length === 0) return;
 
-  let toc = d.getElementById('TOC');
+  let toc = d.getElementById('TOC') || d.getElementById('TableOfContents');
   if (toc) {
     toc.innerHTML = ''; // empty and rebuild TOC if it has been generated (e.g., by Pandoc)
   } else {
