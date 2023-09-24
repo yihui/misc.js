@@ -5,7 +5,7 @@
   context.font = "72px monospace";
   const size = context.measureText(text).width;
   for (let font of [' SC', ' CN', ' TC', ' TW', '']) {
-    context.font = `72px 'Source Han Serif ${font}', monospace`;
+    context.font = `72px 'Source Han Serif${font}', monospace`;
     // no need to load TypeKit if Source Hans Serif has been installed
     if (context.measureText(text).width != size) return;
   }
