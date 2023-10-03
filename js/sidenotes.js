@@ -14,9 +14,15 @@
       // add footnote number
       s.firstElementChild.insertAdjacentHTML('afterbegin', `<span class="bg-number">${a.innerText}</span> `);
       s.querySelector('a[href^="#fnref"]')?.remove();  // remove backreference
+      s.className += ' footnotes';
     } else {
       s.innerHTML = el.outerHTML;
     }
+    while (s.lastChild?.nodeName === '#text' && /^\s*$/.test(s.lastChild.textContent)) {
+      s.lastChild.remove();
+    }
+    // remove fullwidth classes if present (because they cannot be used in the margin)
+    s.querySelectorAll('.fullwidth').forEach(el => el.classList.remove('fullwidth'));
     // insert note after the <sup> or <span> that contains a
     a2.after(s);
     a2.classList.add('note-ref');
