@@ -28,4 +28,20 @@
   });
   // also add side classes to TOC
   d.getElementById('TOC')?.classList.add('side', 'side-left');
+  // if a sidenote collapses with any fullwidth element, remove the side class
+  const sides = d.querySelectorAll('.side.side-right, .side.side-left'), fulls = [];
+  d.querySelectorAll('.fullwidth').forEach(el => {
+    fulls.push([el, el.getBoundingClientRect()]);
+  });
+  // add a class to document body if it has sidenotes
+  sides.length && d.body.classList.add('has-sidenotes');
+  sides.forEach(s => {
+    const r1 = s.getBoundingClientRect();
+    for (let f of fulls) {
+      const r2 = f[1];
+      if (!(r1.right < r2.left || r1.left > r2.right || r1.bottom < r2.top || r1.top > r2.bottom)) {
+        f[0].classList.remove('fullwidth');
+      }
+    }
+  });
 })(document);
