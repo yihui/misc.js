@@ -131,6 +131,11 @@ KaTeX's auto-render extension.
 Right-align a `<blockquote>` footer if the footer is a `<p>` that starts with
 the em-dash.
 
+## tabsets.js
+
+Create tabsets from section headings and their content. See [this
+post](https://yihui.org/en/2023/10/heading-tabsets/) for documentation.
+
 ## toc.js
 
 Automatically build a table of contents (TOC) from all section headings.

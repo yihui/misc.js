@@ -1,0 +1,29 @@
+.tab-link, .tab-pane {
+  border: 1px solid rgba(0, 0, 0, .05);
+  border-radius: 5px 5px 0 0;
+}
+.tab-link + .tab-pane.active {
+  border-radius: 0 5px 0 0;
+}
+.tab-link.active, .tab-pane.active {
+  border-color: rgba(0, 0, 0, .5);
+}
+.tab-link:not(.active):hover {
+  background: rgba(0, 0, 0, .05);
+}
+.tab-pane {
+  display: none;
+  padding: .5em;
+}
+.tab-pane.active {
+  display: block;
+}
+.tab-link {
+  display: inline-block;
+  margin: 0 .5em -1px 0;
+  padding: .5em;
+  cursor: pointer;
+}
+.tab-link.active {
+  border-bottom-color: white;
+}
