@@ -23,6 +23,7 @@ document.querySelectorAll('.tabset').forEach(h => {
       const l2 = newEl('div', 'tab-link');
       l2.append(l);
       l.outerHTML = l.innerHTML;
+      if (/<!--active-->/.test(l2.innerHTML)) l2.classList.add('active');
       el.before(l2);
       const p = newEl('div', 'tab-pane');
       l2.after(p);
