@@ -134,7 +134,7 @@ the em-dash.
 ## tabsets.js
 
 Create tabsets from section headings and their content. See [this
-post](https://yihui.org/en/2023/10/heading-tabsets/) for documentation.
+post](https://yihui.org/en/2023/10/section-tabsets/) for documentation.
 
 ## toc.js
 

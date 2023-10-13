@@ -1,4 +1,5 @@
-// find an element with class `tabset` and convert its subsequent headings to tabs
+// find an element with class `tabset` and convert its subsequent headings to tabs;
+// see documentation at: https://yihui.org/en/2023/10/section-tabsets/
 document.querySelectorAll('.tabset').forEach(h => {
   let links = h.querySelectorAll(':scope > .tab-link'),
       panes = h.querySelectorAll(':scope > .tab-pane');
