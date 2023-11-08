@@ -37,6 +37,11 @@ of their parent element.
 Add a copy button to any element (by default, `<pre>` code blocks) on a page.
 See [this post](https://yihui.org/en/2023/09/copy-button/) for details.
 
+## dl-fieldset.js
+
+Convert definition lists `<dl>` to `<fieldset>`. See more information [in this
+post](https://yihui.org/en/2023/11/dl-fieldset/).
+
 ## external-link.js
 
 If a link of `<a>` does not start with `http://` or `https://`, add the
