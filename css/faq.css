@@ -18,7 +18,7 @@
 .faq-list .anchor {
   display: none;
 }
-.faq-list > li:hover > .anchor {
+.faq-list > li:hover .anchor {
   display: inline;
 }
 .faq-list > li {
