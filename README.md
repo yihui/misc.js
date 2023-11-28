@@ -126,6 +126,13 @@ class, so that highlight.js will not try to syntax highlight the code in it.
 
 Find all section headings (`h1` - `h6`) and number them.
 
+## ol-id.js
+
+Add IDs of the form `li-N` to items in ordered lists, where `N` is the index of
+a list item. This makes it possible to reference or locate a specific item on a
+page by a hash in the URL. If you hold `Alt` and click on an item, you will get
+the URL with the hash in the address bar of your browser.
+
 ## render-katex.js
 
 Simply run `renderMathInElement(document.body)` to render math expression using
