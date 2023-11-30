@@ -122,6 +122,10 @@ expressions (by default, MathJax ignores math in `<code>`).
 Add the `nohighlight` class to `<code>` in `<pre>` when it does not have a
 class, so that highlight.js will not try to syntax highlight the code in it.
 
+## number-captions.js
+
+Number figure and table captions.
+
 ## number-sections.js
 
 Find all section headings (`h1` - `h6`) and number them.
