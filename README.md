@@ -42,6 +42,11 @@ See [this post](https://yihui.org/en/2023/09/copy-button/) for details.
 Convert definition lists `<dl>` to `<fieldset>`. See more information [in this
 post](https://yihui.org/en/2023/11/dl-fieldset/).
 
+## docco-classic.js
+
+Find code blocks on a page and put them in the right column. Other elements will
+be placed in the left column.
+
 ## external-link.js
 
 If a link of `<a>` does not start with `http://` or `https://`, add the

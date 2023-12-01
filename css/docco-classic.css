@@ -1,0 +1,86 @@
+/* Derived from the Docco package by Jeremy Ashkenas: https://github.com/jashkenas/docco/ */
+body {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, FreeSerif, serif;
+  line-height: 1.5;
+  color: #30404f;
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #112233;
+  font-weight: normal;
+  margin: 0 0 1rem 0;
+}
+.frontmatter {
+  text-align: center;
+  margin-top: 2em;
+}
+a {
+  color: #0088cc;
+  text-decoration: none;
+}
+a:hover, a:focus{
+  color: #005580;
+  text-decoration: underline;
+}
+table {
+  width: 100%;
+  border: 0;
+}
+td.docs, td.code {
+  width: 50%;
+  vertical-align: top;
+  padding: 1em 1em 1px 2em;
+}
+td.code{
+  background: #f5f5ff;
+  overflow-x: hidden;
+}
+code{
+  font-size: .8em;
+}
+td.docs code{
+  background: #f8f8ff;
+  border: 1px solid #dedede;
+}
+img {
+  max-width: 100%;
+}
+pre code{
+  display: block;
+  line-height: 1;
+}
+pre code:hover {
+  white-space: pre-wrap;
+}
+.pilwrap {
+  position: relative;
+}
+.pilcrow {
+  font: 12px Arial;
+  text-decoration: none;
+  color: rgb(69, 69, 69);
+  position: absolute;
+  top: 3px;
+  left: -1.5em;
+  padding: 1px 2px;
+  opacity: 0;
+}
+td.docs:hover .pilcrow {
+  opacity: 1;
+}
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 1em;
+  color: #777;
+}
+.container {
+  position: relative;
+}
+.handler{
+  width: 5px;
+  padding: 0;
+  cursor: col-resize;
+  position: absolute;
+  z-index: 5;
+}
