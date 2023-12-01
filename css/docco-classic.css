@@ -50,8 +50,6 @@ img {
 }
 pre code{
   display: block;
-}
-pre code:hover {
   white-space: pre-wrap;
 }
 .pilwrap {
