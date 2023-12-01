@@ -32,6 +32,11 @@ Then the image will have a tooltip on mouseover.
 Center `<img>`, `<video>`, and `<object>` on a page if they are the only child
 of their parent element.
 
+## code-lang.js
+
+Add the `language-` prefix to the class name of `<code>` inside `<pre>` when
+appropriate, so that syntax highlighters such as prism.js can work.
+
 ## copy-button.js
 
 Add a copy button to any element (by default, `<pre>` code blocks) on a page.
