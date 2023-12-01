@@ -23,7 +23,7 @@
         }
         if (parent.nodeName === 'P') {
           parent.style.textAlign = 'center';
-          if (!parentA && tagName === 'img') {
+          if (!parentA && tagName === 'img' && !/^data:/.test(tag.src)) {
             parent.innerHTML = `<a href="${tag.src}" style="border: none;">${tag.outerHTML}</a>`;
           }
         }
