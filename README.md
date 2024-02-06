@@ -83,6 +83,12 @@ blocks (`<pre>`) are folded. Other elements can also be folded via custom
 options. See [this post](https://yihui.org/en/2023/09/code-folding/) for more
 information.
 
+## fold-output.js
+
+Click on a code block of the class `language-*` to toggle the visibility of its
+siblings on the page before the next `language-*` block. Click while holding the
+`Alt` key to toggle siblings of all `language-*` blocks on the page.
+
 ## fullwidth.js
 
 Find `<pre>`, `<table>`, and TOC (with ID `TableOfContents`) elements and add
