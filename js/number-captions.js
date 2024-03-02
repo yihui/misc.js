@@ -3,7 +3,7 @@
 // config options via data-foo attributes of this <script>:
 //   * data-colon: the colon character (':' by default);
 //   * data-fig-label: label for figure captions ('Figure ' by default)
-//   * data-tab-label: lable for table captions ('Table ' by default) 
+//   * data-tab-label: label for table captions ('Table ' by default) 
 (d => {
   const cfg = d.currentScript?.dataset, colon = cfg?.colon || ':';
   function NUM(target, label) {
