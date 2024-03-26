@@ -1,0 +1,98 @@
+:root { --slide-width: 100%; }
+html { scroll-snap-type: y mandatory; }
+th, td { padding: .2em .5em; }
+.slide { padding: 0 1em; }
+.slide, .frontmatter .main, .middle .main {
+  display: flex;
+  flex-direction: column;
+}
+.slide > .main { flex-grow: 1; }
+.slide > .header { margin-bottom: 1em; }
+.slide h2, .slide h3 { margin-top: unset; }
+body {
+  max-width: fit-content;
+  padding: 0;
+}
+a { color: #eb4a47; }
+:not(pre) > code { background-color: #fdfded; }
+#TOC { columns: 2; }
+#TOC::before {
+  font-size: 1.3em;
+  font-weight: bold;
+  display: block;
+  border-bottom: 1px solid #666;
+}
+.frontmatter .main, .middle .main {
+  justify-content: center;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  opacity: .5;
+  font: .7em monospace;
+}
+.inverse {
+  background-color: #eee;
+  filter: invert(1);
+}
+.fade {
+  background: repeating-linear-gradient(135deg, white, white 30px, #ddd 32px, #ddd 32px);
+  opacity: 0.6;
+}
+.center { text-align: center; }
+.slide-container h2 .section-number {
+  display: inline-block;
+  background-color: #666;
+  color: white;
+  padding: 0 .1em;
+  margin-right: .3em;
+}
+.overview { font-size: .8em; }
+.overview .slide-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.overview .slide-container .slide {
+  width: var(--slide-width);
+  border: 1px dotted #ccc;
+  margin-bottom: 0.5em;
+}
+.mirrored { transform: scale(-1, 1); }
+.timer { visibility: hidden; }
+html:fullscreen::-webkit-scrollbar, .spacer { display: none; }
+html:fullscreen {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+@media screen and (min-width: 992px) {
+  :root {
+    --slide-width: 49%;
+    --slide-scale: 1;
+    --slide-ratio: 0.75;
+    --slide-top: auto;
+  }
+  .slide-mode {
+    font-size: 2em;
+    background-color: #d7d8d2;
+    scale: var(--slide-scale);
+    margin-top: var(--slide-top);
+  }
+  .slide-mode .slide {
+    min-height: calc(100vh / var(--slide-scale));
+    width: calc(100vh / var(--slide-ratio) / var(--slide-scale));
+    box-shadow: 0 0 2em #888;
+    clip-path: inset(0 -2em 0 -2em);
+    background-color: white;
+    scroll-snap-align: start;
+  }
+  li li { font-size: .9em; }
+  .slide-mode .spacer { display: block; }
+  .slide-mode .timer { visibility: visible; }
+}
+@media (min-width: 1400px) {
+  :root { --slide-width: 33%; }
+}
+@media (min-width: 1800px) {
+  :root { --slide-width: 24.67%; }
+}

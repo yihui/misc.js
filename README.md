@@ -163,6 +163,11 @@ KaTeX's auto-render extension.
 Right-align a `<blockquote>` footer if the footer is a `<p>` that starts with
 the em-dash.
 
+## snap.js
+
+Create HTML slides using [the CSS Scroll Snap
+technique](https://yihui.org/en/2023/09/snap-slides/).
+
 ## tabsets.js
 
 Create tabsets from section headings and their content. See [this
