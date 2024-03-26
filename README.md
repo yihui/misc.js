@@ -128,8 +128,8 @@ This requires highlight.js to be loaded in advance.
 
 ## math-code.js
 
-Write LaTeX math expressions (`$\alpha$`) in `<code></code>` in HTML or a pair of
-backticks in Markdown (which will be rendered to `<code>` in HTML), and this
+Write LaTeX math expressions (`$\alpha$`) in `<code></code>` in HTML or a pair
+of backticks in Markdown (which will be rendered to `<code>` in HTML), and this
 script will remove the `<code>` tag, so that MathJax can recognize the math
 expressions (by default, MathJax ignores math in `<code>`).
 
