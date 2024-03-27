@@ -116,7 +116,7 @@
       break;
     }
     s.addEventListener('click', e => {
-      e.altKey && (toggleView(e), reveal(e.target));
+      (e.altKey || e.ctrlKey) && (toggleView(e), reveal(e.target));
     });
   });
   [...d.querySelectorAll('a.footnote-backref'), fn, tm].forEach(el => el?.remove());

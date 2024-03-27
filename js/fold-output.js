@@ -16,8 +16,8 @@
         sb.style.display = s1 ? 'none' : '';
         sb = sb.nextElementSibling;
       }
-      // Alt + Click to toggle all output
-      e.altKey && (s2 = s1, blocks.forEach(b => b !== el && b.click()), s2 = undefined);
+      // Alt/Ctrl + Click to toggle all output
+      (e.altKey || e.ctrlKey) && (s2 = s1, blocks.forEach(b => b !== el && b.click()), s2 = undefined);
       s1 = undefined;
     };
   });
