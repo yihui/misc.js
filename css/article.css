@@ -108,7 +108,7 @@ body, blockquote, .side, .menu { background: #fafafa; }
     margin: 1em auto;
     background: none;
   }
-  .note-ref + .side { margin-left: 100vw; }
+  :not(.note-ref) + .side { float: none; }
   .side > :last-child { margin-bottom: 0; }
   .embed-left, .embed-right {
     float: inherit;
