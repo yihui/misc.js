@@ -5,9 +5,6 @@ body {
 .footnotes, code, .side, .body .side {
   font-size: .85em;
 }
-a {
-  color: steelblue;
-}
 .frontmatter, .chapter {
   min-height: calc(100vh - 1em);
 }
@@ -25,22 +22,5 @@ a {
 .frontmatter .title {
   padding: 20vh 1em 1em;
   margin-top: -1em;
-}
-#TOC a {
-  text-decoration: none;
-}
-#TOC ul ul {
-  border-left: 1px solid lightsteelblue;
-}
-#TOC .active {
-  color: limegreen;
-}
-#TOC li li .active {
-  border-left: 3px solid;
-  margin-left: calc(-1em - 3px);
-  padding-left: 1em;
-}
-#TOC li:not(.open) ul {
-  display: none;
 }
 /* TODO: style for h1.part and printing */
