@@ -9,7 +9,6 @@ body, blockquote, .side, .menu { background: #fafafa; }
 .article-meta .terms, .appendix, .footnotes, main .side > *, .body .side, figcaption, .caption { font-size: .9em; }
 .single .appendix, .body ~ .appendix, .frontmatter { background: none; }
 .appendix h2 { border-bottom: 1px dashed #666; }
-a { color: steelblue; }
 #TOC { top: 0; }
 #TOC ul { list-style-position: inside; }
 #TOC > ul {
