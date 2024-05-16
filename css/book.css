@@ -23,4 +23,25 @@ body {
   padding: 20vh 1em 1em;
   margin-top: -1em;
 }
+.main-number::before {
+  content: "Chapter ";
+}
+.appendix .main-number::before {
+  content: none;
+}
+.main-number::after {
+  content: none;
+}
+.appendix .main-number::after {
+  content: ".";
+}
+.chapter h1 {
+  margin: 1em auto 3em;
+  border-bottom: 1px solid;
+}
+h1 .section-number {
+  display: inline-block;
+  border-bottom: 4px solid;
+  margin-bottom: -4px;
+}
 /* TODO: style for h1.part and printing */
