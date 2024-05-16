@@ -6,7 +6,7 @@ body {
   line-height: 1.5;
   box-sizing: border-box;
 }
-body, .footnotes, code, fieldset { font-size: .9em; }
+body, .footnotes, code { font-size: .9em; }
 li li { font-size: .95em; }
 *, *:before, *:after { box-sizing: inherit; }
 a { color: steelblue; }
@@ -16,9 +16,9 @@ pre code { display: block; overflow-x: auto; }
 code { font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace; }
 :not(pre) > code, code[class], .line-numbers, .box > div { background-color: #f8f8f8; }
 pre > code:not([class]), pre > .language-plain, .box { background-color: inherit; border: 1px solid #eee; }
-pre > .message, .callout-tip { border-color: #9eeaf9; }
-pre > .warning, .callout-caution { background: #fff3cd; border-color: #fff3cd; }
-pre > .error, .callout-important { background: #f8d7da; border-color: #f8d7da; }
+pre > .message { border-color: #9eeaf9; }
+pre > .warning { background: #fff3cd; border-color: #fff3cd; }
+pre > .error { background: #f8d7da; border-color: #f8d7da; }
 .fenced-chunk { border-left: 1px solid #666; }
 .code-fence {
   opacity: .4;
@@ -45,8 +45,6 @@ blockquote {
   padding: 1px 1em;
   border-left: .5em solid #eee;
 }
-fieldset { margin: 1em auto; }
-legend { font-weight: bold; }
 hr, .footnotes::before { border: 1px dashed #ddd; }
 .frontmatter { text-align: center; }
 #TOC .numbered li { list-style: none; }

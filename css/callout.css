@@ -1,0 +1,29 @@
+fieldset {
+  font-size: .9em;
+  margin: 1em auto;
+}
+legend {
+  font-weight: bold;
+  border-style: groove;
+  padding: 2px .5em;
+}
+.callout-tip {
+  border-color: #9eeaf9;
+}
+.callout-caution {
+  background: #fff3cd;
+  border-color: #fff3cd;
+}
+.callout-important {
+  background: #f8d7da;
+  border-color: #f8d7da;
+}
+.callout-tip legend::before {
+  content: "☆ ";
+}
+.callout-caution legend::before {
+  content: "☂ ";
+}
+.callout-important legend::before {
+  content: "☀ ";
+}
