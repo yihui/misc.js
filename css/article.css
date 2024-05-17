@@ -23,17 +23,6 @@ body, blockquote, .side, .menu { background: #fafafa; }
 #TOC ul ul {
   border-left: 1px solid lightsteelblue;
 }
-#TOC .active {
-  color: limegreen;
-}
-#TOC li li .active {
-  border-left: 3px solid;
-  margin-left: calc(-1em - 3px);
-  padding-left: 1em;
-}
-#TOC li:not(.open) ul {
-  display: none;
-}
 .bg-number {
   padding: 1px 5px;
   border-radius: 5px;
@@ -98,6 +87,17 @@ body, blockquote, .side, .menu { background: #fafafa; }
 
 @media (min-width: 1280.02px) {
   .article, .body, .appendix { position: relative; }
+  #TOC .active {
+    color: limegreen;
+  }
+  #TOC li li .active {
+    border-left: 3px solid;
+    margin-left: calc(-1em - 3px);
+    padding-left: 1em;
+  }
+  #TOC li:not(.open) ul {
+    display: none;
+  }
   .note-ref { cursor: pointer; }
   .note-ref:hover + .side {
     display: inline-block;
