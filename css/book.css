@@ -23,6 +23,14 @@ body {
   padding: 20vh 1em 1em;
   margin-top: -1em;
 }
+#TOC {
+  margin-left: calc(-200px - .8em);
+}
+@media (max-width: 1280px) {
+  #TOC {
+    margin-left: auto;
+  }
+}
 .main-number::before {
   content: "Chapter ";
 }
