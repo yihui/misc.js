@@ -114,6 +114,8 @@ body, blockquote, .side, .menu { background: #fafafa; }
     border-radius: 5px;
     padding: 1em;
     position: initial;
+    float: none;
+    columns: 2;
   }
   .side { width: 100%; }
   main .side, .body .side {
@@ -136,6 +138,7 @@ body, blockquote, .side, .menu { background: #fafafa; }
 @media (max-width: 800px) {
   body { padding: initial; }
   main, .body { padding: 0 .5em 0; }
+  #TOC { columns: 1; }
   .quote-left, .quote-right {
     width: inherit;
     float: inherit;
