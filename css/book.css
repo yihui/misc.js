@@ -31,17 +31,11 @@ body {
     margin-left: auto;
   }
 }
-.main-number::before {
+.chapter:not(.appendix) .main-number::before {
   content: "Chapter ";
 }
-#TOC .main-number::before, .appendix .main-number::before {
+.chapter:not(.appendix) .main-number::after {
   content: none;
-}
-.main-number::after {
-  content: none;
-}
-.appendix .main-number::after {
-  content: ".";
 }
 .chapter h1 {
   margin: 1em auto 3em;
