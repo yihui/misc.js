@@ -5,7 +5,7 @@
   if (!toc) return;
   const links = toc.querySelectorAll('a[href^="#"]');
   if (!links.length) return;
-  const lis = toc.querySelectorAll('li'), dict = {};
+  const dict = {};
   links.forEach(a => dict[a.getAttribute('href').replace('#', '')] = a);
   const ids = Object.keys(dict);
 
@@ -26,9 +26,6 @@
     for (const i in dict) {
       dict[i].classList[i === id_active ? 'add' : 'remove']('active');
     }
-    lis.forEach(li => {
-      li.classList[li.querySelector('.active') ? 'add' : 'remove']('open');
-    });
   }));
   
   // observe all section headings associated with TOC links
