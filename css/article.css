@@ -85,7 +85,7 @@ body, blockquote, .side, .menu { background: #fafafa; }
   padding: 1em 1em 0;
 }
 
-@media (min-width: 1280.02px) {
+@media (min-width: 1240.02px) {
   .article, .body, .appendix { position: relative; }
   #TOC .active {
     color: limegreen;
@@ -108,7 +108,7 @@ body, blockquote, .side, .menu { background: #fafafa; }
     box-sizing: content-box;
   }
 }
-@media (max-width: 1280px) {
+@media (max-width: 1240px) {
   #TOC {
     border: 1px solid #eee;
     border-radius: 5px;
