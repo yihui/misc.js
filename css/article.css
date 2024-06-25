@@ -103,6 +103,7 @@ body, blockquote, .side, .menu { background: #fafafa; }
     display: inline-block;
     background-color: #f8f8f8;
     position: absolute;
+    z-index: 1;
     margin-left: 1em;
     padding: .5em;
     box-sizing: content-box;
