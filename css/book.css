@@ -26,7 +26,7 @@ body {
 #TOC {
   margin-left: calc(-200px - .8em);
 }
-@media (max-width: 1240px) {
+@media (max-width: 1264px) {
   #TOC {
     margin-left: auto;
   }
