@@ -23,6 +23,7 @@ body, blockquote, .side, .menu { background: #fafafa; }
 #TOC ul ul {
   border-left: 1px solid lightsteelblue;
 }
+pre[class*=language-].line-numbers > code { margin-left: 3.8em; }
 .bg-number {
   padding: 1px 5px;
   border-radius: 5px;
