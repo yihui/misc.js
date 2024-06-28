@@ -1,7 +1,7 @@
 // fold elements with <details>: https://yihui.org/en/2023/09/code-folding/
 (d => {
   const cfg = d.currentScript?.dataset, cls = 'folder'; let status = !!cfg?.open;
-  d.querySelectorAll(cfg?.selector || 'pre>code[class],pre[class]').forEach(el => {
+  d.querySelectorAll(cfg?.selector || 'pre:not([class])>code[class],pre[class]').forEach(el => {
     const s1 = d.createElement('details'), s2 = d.createElement('summary');
     s1.className = cls; s1.open = status;
     s2.innerText = (cfg?.label || 'Details') + (cfg?.tagName ? ` <${el.tagName}>` : '');
