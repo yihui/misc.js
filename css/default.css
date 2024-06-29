@@ -29,8 +29,9 @@ pre > .error { background: #f8d7da; border-color: #f8d7da; }
   &:hover { opacity: inherit; }
 }
 pre[class*=language-].line-numbers {
-  padding: 1em 0;
-  code { padding: 0 0 0 1em; }
+  padding-top: 1em;
+  padding-bottom: 1em;
+  code { padding: initial; }
 }
 .box { margin: 1em 0; }
 .box > :first-child > p:first-child, .box > :last-child > p:last-child { padding: 1em; }
