@@ -26,10 +26,12 @@ pre > .error { background: #f8d7da; border-color: #f8d7da; }
   opacity: .4;
   border: 1px dashed #666;
   border-left: 2px solid;
+  &:hover { opacity: inherit; }
 }
-.code-fence:hover { opacity: inherit; }
-.line-numbers code { padding: 0 0 0 1em; }
-pre[class*=language-].line-numbers { padding: 1em 0; }
+pre[class*=language-].line-numbers {
+  padding: 1em 0;
+  code { padding: 0 0 0 1em; }
+}
 .box { margin: 1em 0; }
 .box > :first-child > p:first-child, .box > :last-child > p:last-child { padding: 1em; }
 .box > :first-child, .box > :first-child > p:first-child { margin-top: 0; }
