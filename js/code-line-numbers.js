@@ -17,5 +17,5 @@
     e ? (e.grammar && addNum(e.element)) :
       document.querySelectorAll('pre > code.line-numbers:first-child').forEach(addNum);
   }
-  Prism?.hooks ? Prism.hooks.add('complete', addAll) : addAll();
+  window.Prism?.hooks ? Prism.hooks.add('complete', addAll) : addAll();
 })();
