@@ -1,0 +1,8 @@
+span[data-line-number]::before {
+  content: attr(data-line-number);
+  padding-right: .5em;
+  margin-right: 1em;
+  display: inline-block;
+  border-right: solid 1px;
+  color: #ccc;
+}
