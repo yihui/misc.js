@@ -1,9 +1,6 @@
 /**
  * Prism.s theme ported from highlight.js's xcode style
  */
-pre code {
-  padding: 1em;
-}
 .token.comment {
   color: #007400;
 }
