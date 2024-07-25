@@ -4,7 +4,7 @@
     const s = '<span data-line-number=""></span>', sel = 'span[data-line-number]';
     if (!el.classList.contains('line-numbers') || el.parentNode.tagName !== 'PRE'
         || el.querySelector(sel)) return;
-    el.innerHTML = s + el.innerHTML.replace(/(\n)(.|\s)/g, '$1' + s + '$2');
+    el.innerHTML = s + el.innerHTML.replace(/\n(?=.|\s)/g, '\n' + s);
     let n1 = +el.dataset.start; if (isNaN(n1)) n1 = 1;
     const spans = el.querySelectorAll(sel), w = ('' + (n1 - 1 + spans.length)).length;
     spans.forEach(sp => {
