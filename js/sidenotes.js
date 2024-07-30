@@ -1,6 +1,6 @@
 // move footnotes (ids start with fn) and citations (ids start with ref-) to sidenotes
 (d => {
-  d.querySelectorAll('.footnotes > ol > li[id^="fn"], #refs > div[id^="ref-"]').forEach(el => {
+  d.querySelectorAll('.footnotes > ol > li[id^="fn"], #refs > *[id^="ref-"]').forEach(el => {
     // find <a> that points to note id in body
     const h = `a[href="#${el.id}"]`,
       a = d.querySelector(`${h} > sup, sup > ${h}, .citation > ${h}`);
