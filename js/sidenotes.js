@@ -2,31 +2,31 @@
 (d => {
   d.querySelectorAll('.footnotes > ol > li[id^="fn"], #refs > *[id^="ref-"]').forEach(el => {
     // find <a> that points to note id in body
-    const h = `a[href="#${el.id}"]`,
-      a = d.querySelector(`${h} > sup, sup > ${h}, .citation > ${h}`);
-    if (!a) return;
-    const a2 = a.parentNode;
-    (a.tagName === 'A' ? a : a2).removeAttribute('href');
-    const s = d.createElement('div');  // insert a side div next to a2 in body
-    s.className = 'side side-right';
-    if (/^fn/.test(el.id)) {
-      s.innerHTML = el.innerHTML;
-      // add footnote number
-      s.firstElementChild.insertAdjacentHTML('afterbegin', `<span class="bg-number">${a.innerText}</span> `);
-      s.querySelector('a[href^="#fnref"]')?.remove();  // remove backreference
-      s.className += ' footnotes';
-    } else {
-      s.innerHTML = el.outerHTML;
-    }
-    while (s.lastChild?.nodeName === '#text' && /^\s*$/.test(s.lastChild.textContent)) {
-      s.lastChild.remove();
-    }
-    // remove fullwidth classes if present (because they cannot be used in the margin)
-    s.querySelectorAll('.fullwidth').forEach(el => el.classList.remove('fullwidth'));
-    // insert note after the <sup> or <span> that contains a
-    a2.after(s);
-    a2.classList.add('note-ref');
-    el.remove();
+    const h = `a[href="#${el.id}"]`;
+    d.querySelectorAll(`${h} > sup, sup > ${h}, .citation > ${h}`).forEach(a => {
+      const a2 = a.parentNode;
+      (a.tagName === 'A' ? a : a2).removeAttribute('href');
+      const s = d.createElement('div');  // insert a side div next to a2 in body
+      s.className = 'side side-right';
+      if (/^fn/.test(el.id)) {
+        s.innerHTML = el.innerHTML;
+        // add footnote number
+        s.firstElementChild.insertAdjacentHTML('afterbegin', `<span class="bg-number">${a.innerText}</span> `);
+        s.querySelector('a[href^="#fnref"]')?.remove();  // remove backreference
+        s.className += ' footnotes';
+      } else {
+        s.innerHTML = el.outerHTML;
+      }
+      while (s.lastChild?.nodeName === '#text' && /^\s*$/.test(s.lastChild.textContent)) {
+        s.lastChild.remove();
+      }
+      // remove fullwidth classes if present (because they cannot be used in the margin)
+      s.querySelectorAll('.fullwidth').forEach(el => el.classList.remove('fullwidth'));
+      // insert note after the <sup> or <span> that contains a
+      a2.after(s);
+      a2.classList.add('note-ref');
+      el.remove();
+    });
   });
   // remove the footnote/citation section if it's empty now
   d.querySelectorAll('.footnotes, #refs').forEach(el => {
