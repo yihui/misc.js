@@ -66,7 +66,7 @@ table, .body h2 { border-bottom: 1px solid #666; }
 #refs::before { content: "Bibliography"; font-size: 1.5em; }
 .ref-paren-open::before { content: "("; }
 .ref-paren-close::after { content: ")"; }
-.ref-semi-colon::after { content: "; "; }
+.ref-semicolon::after { content: "; "; }
 .ref-and::after { content: " and "; }
 .ref-et-al::after { content: " et al."; font-style: italic; }
 .footnote-ref a {
