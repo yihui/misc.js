@@ -3,7 +3,7 @@
   d.querySelectorAll('.footnotes > ol > li[id^="fn"], #refs > *[id^="ref-"]').forEach(el => {
     // find <a> that points to note id in body
     const h = `a[href="#${el.id}"]`;
-    d.querySelectorAll(`${h} > sup, sup > ${h}, .citation > ${h}`).forEach(a => {
+    d.querySelectorAll(`${h} > sup, sup > ${h}, .citation > ${h}, ${h}.citation`).forEach(a => {
       const a2 = a.parentNode;
       (a.tagName === 'A' ? a : a2).removeAttribute('href');
       const s = d.createElement('div');  // insert a side div next to a2 in body
@@ -22,9 +22,10 @@
       }
       // remove fullwidth classes if present (because they cannot be used in the margin)
       s.querySelectorAll('.fullwidth').forEach(el => el.classList.remove('fullwidth'));
-      // insert note after the <sup> or <span> that contains a
-      a2.after(s);
-      a2.classList.add('note-ref');
+      // insert note after the parent of <a> unless it contains class 'citation'
+      const a3 = a.classList.contains('citation') ? a : a2;
+      a3.after(s);
+      a3.classList.add('note-ref');
       el.remove();
     });
   });
