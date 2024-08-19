@@ -79,7 +79,7 @@ section.footnotes {
 }
 
 @media print {
-  body { font-size: 12pt; max-width: 100%; }
+  body { max-width: 100%; }
   tr, img { page-break-inside: avoid; }
 }
 @media only screen and (min-width: 992px) {
