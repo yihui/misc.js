@@ -76,7 +76,7 @@
 
     cls.add('pagesjs');
     d.body.insertAdjacentElement('afterbegin', newPage());
-    H = box.clientHeight;
+    H = box.clientHeight || window.innerHeight;  // use window height if box height not specified
 
     $$('.frontmatter, #TOC, .abstract').forEach(fill);
     $$('.body').forEach(el => {
