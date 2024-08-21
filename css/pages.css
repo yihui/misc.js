@@ -1,0 +1,95 @@
+:root {
+  --paper-width: 210mm;
+  --paper-height: 297mm;
+  --paper-margin-top: 40px;
+  --paper-margin-right: 80px;
+  --paper-margin-bottom: 40px;
+  --paper-margin-left: 80px;
+  --page-header-height: 40px;
+  --page-header-bottom: 40px;
+  --page-footer-height: 40px;
+  --page-footer-top: 40px;
+}
+@page {
+  size: var(--paper-width) var(--paper-height);
+  margin: 0;
+}
+@page multiple {
+  margin-top: var(--paper-margin-top);
+  margin-bottom: var(--paper-margin-bottom);
+}
+.page-multiple {
+  page: multiple;
+}
+.pagesjs {
+  padding: 0;
+  max-width: 100%;
+  margin: 5mm;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5mm;
+  .pagesjs-page {
+    width: var(--paper-width);
+    height: var(--paper-height);
+    padding: var(--paper-margin-top) var(--paper-margin-right) var(--paper-margin-bottom) var(--paper-margin-left);
+  	page-break-after: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+.pagesjs-header, .pagesjs-footer {
+  font-size: .9em;
+  display: flex;
+  justify-content: space-between;
+}
+.pagesjs-header {
+  flex: var(--page-header-height) 0 0;
+  margin-bottom: var(--page-header-bottom);
+  align-items: end;
+}
+.pagesjs-footer {
+  flex: var(--page-footer-height) 0 0;
+  margin-top: var(--page-footer-top);
+  align-items: start;
+}
+.pagesjs-body {
+  flex-grow: 1;
+}
+.pagesjs-header::before {
+  content: attr(data-main-title);
+}
+.pagesjs-header::after {
+  content: attr(data-page-title);
+}
+.pagesjs-footer::before {
+  content: " ";
+}
+.pagesjs-footer::after {
+  content: attr(data-page-number);
+}
+@media only screen {
+  .pagesjs {
+    background-color: #f7f7f7;
+    .pagesjs-page {
+      background-color: white;
+      overflow-y: auto;
+    }
+  }
+}
+@media print {
+  .pagesjs {
+    margin: 0;
+    gap: 0;
+    .page-multiple {
+      padding: 0 var(--paper-margin-right) 0 var(--paper-margin-left);
+      .pagesjs-header {
+        margin-top: calc(0 - var(--page-header-bottom) - var(--page-header-height));
+      }
+      .pagesjs-footer {
+        margin-bottom: calc(0 - var(--page-footer-top) - var(--page-footer-height));
+      }
+    }
+  }
+}
