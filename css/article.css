@@ -87,16 +87,18 @@ body, blockquote, .side, .menu { background: #fafafa; }
 
 @media (min-width: 1264.02px) {
   .article, .body, .appendix { position: relative; }
-  #TOC .active {
-    color: limegreen;
-  }
-  #TOC li li .active {
-    border-left: 3px solid;
-    margin-left: calc(-1em - 3px);
-    padding-left: 1em;
-  }
-  #TOC li:not(:has(.active)) ul {
-    display: none;
+  #TOC.side {
+    .active {
+      color: limegreen;
+    }
+    li li .active {
+      border-left: 3px solid;
+      margin-left: calc(-1em - 3px);
+      padding-left: 1em;
+    }
+    li:not(:has(.active)) ul {
+      display: none;
+    }
   }
   .note-ref { cursor: pointer; }
   .note-ref:hover + .side {
