@@ -1,10 +1,10 @@
 // move elements into page boxes such that each box contains as many elements as
 // possible and will not exceed the given size (e.g. A4 paper)
 (d => {
-  function  $(s, el = d) { return el.querySelector(s); }
-  function $$(s, el = d) { return el.querySelectorAll(s); }
+  function  $(s, el = d) { return el?.querySelector(s); }
+  function $$(s, el = d) { return el ? el.querySelectorAll(s) : []; }
 
-  const tpl = d.createElement('div');
+  const tpl = d.createElement('div'), book = $$('h1').length > 1;
   tpl.className = 'pagesjs-page';
   tpl.innerHTML = `<div class="pagesjs-header"></div>
 <div class="pagesjs-body"></div>
@@ -13,6 +13,12 @@
   function newPage(el) {
     box = el || tpl.cloneNode(true); box_body = box.children[1];
     return box;
+  }
+  function removeBlank(el) {
+    if (!el) return false;
+    const v = el.innerText.trim() === '';
+    v && el.remove();
+    return v;
   }
   function fill(el) {
     // if the element is already a page, just use it as the box
@@ -26,9 +32,9 @@
       } else {
         newPage(el);
       }
-      return;
+      return el;
     }
-    // create a new box in case of too much content (exceeding original height)
+    // create a new box when too much content (exceeding original height)
     if (box.scrollHeight > H) {
       const box2 = tpl.cloneNode(true), box_body2 = box2.children[1];
       box.after(box2);
@@ -37,6 +43,7 @@
       [box, box_body] = [box2, box_body2];
     }
     box_body.append(el);
+    return box;
   }
 
   // use data-short-title of a header if exists, and fall back to inner text
@@ -44,7 +51,7 @@
     return h && (h.dataset['shortTitle'] || h.innerText);
   }
   const main = shortTitle($('h1.title, .frontmatter h1, .title, h1')),  // main title
-    ps = ($$('h1').length > 1 ? 'h1' : 'h2') + ':not(.frontmatter *)',  // page title selector
+    ps = (book ? 'h1' : 'h2') + ':not(.frontmatter *)',  // page title selector
     tb = ['top', 'bottom'].map(i => {
       const v = getComputedStyle(d.documentElement).getPropertyValue(`--paper-margin-${i}`);
       return +v.replace('px', '') || 0;
@@ -74,20 +81,45 @@
     const cls = d.body.classList;
     if (cls.contains('pagesjs')) return;  // already paginated
 
-    cls.add('pagesjs');
+    cls.add('pagesjs'); book && cls.add('page-book');
     d.body.insertAdjacentElement('afterbegin', newPage());
     H = box.clientHeight || window.innerHeight;  // use window height if box height not specified
 
-    $$('.frontmatter, #TOC, .abstract').forEach(fill);
+    // remove possible classes on TOC/footnotes that we don't need for printing
+    $$(':is(#TOC, .footnotes):is(.side-left, .side-right).side').forEach(el => {
+      el.classList.remove('side', 'side-left', 'side-right');
+    });
+
+    // iteratively add elements to pages
+    $$('.frontmatter, #TOC, .abstract').forEach(el => {
+      book ? (box_body.append(el), box.after(newPage())) : fill(el);
+    });
     $$('.body').forEach(el => {
-      [...el.children].map(fill);
+      // preserve book chapter classes if exist
+      const extra = ['chapter', 'appendix'].filter(i => el.classList.contains(i));
+      book && box.after(newPage());
+      [...el.children].map(c => fill(c).classList.add(...extra));
       el.childElementCount === 0 && el.remove();
+    });
+    // clean up an empty div for books
+    book && removeBlank(box.nextElementSibling);
+
+    // add dot leaders to TOC
+    const toc = $('#TOC');
+    $$('a[href^="#"]', toc).forEach(a => {
+      const s = d.createElement('span'),  // move TOC item content into a span
+        n = a.firstElementChild;  // if first child is section number, exclude it
+      n?.classList.contains('section-number') ? n.after(s) : a.insertAdjacentElement('afterbegin', s);
+      while (s.nextSibling) s.append(s.nextSibling);
+      a.insertAdjacentHTML('beforeend', '<span class="dot-leader"></span>');
+      a.dataset['pageNumber'] = '000';  // placeholder for page numbers
     });
 
     // add page number, title, etc. to data-* attributes of page elements
     let page_title, i = 0;
     $$('.pagesjs-page').forEach(box => {
-      if (box.innerText === '') return box.remove();  // remove empty pages
+      if (removeBlank(box)) return;  // remove empty pages
+      book && $(ps, box) && (page_title = '');  // empty title for first page of chapter
       const N = calcPages(box);
       if (N > 1) box.classList.add('page-multiple');
       i += N;
@@ -99,6 +131,17 @@
       });
       // find page title for next page
       page_title = shortTitle([...$$(ps, box)].pop()) || page_title;
+      let ft;  // first footnote on page
+      // move all footnotes after the page body
+      $$('.footnotes', box).forEach((el, i) => {
+        i === 0 ? (ft = el, box.children[1].after(el)) : (ft.append(...el.children), el.remove());
+      });
+    });
+
+    // add page numbers to TOC with data-* attributes
+    $$('a[href^="#"]', toc).forEach(a => {
+      const p = $(`.pagesjs-page:has(${a.getAttribute('href')}) .pagesjs-header`);
+      a.dataset['pageNumber'] = p ? p.dataset['pageNumber'] : '';
     });
   }
   addEventListener('beforeprint', paginate);
