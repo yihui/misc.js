@@ -97,7 +97,7 @@
     $$('.body').forEach(el => {
       // preserve book chapter classes if exist
       const extra = ['chapter', 'appendix'].filter(i => el.classList.contains(i));
-      book && box.after(newPage());
+      book && box.innerText !== '' && box.after(newPage());
       [...el.children].map(c => fill(c).classList.add(...extra));
       el.childElementCount === 0 && el.remove();
     });
