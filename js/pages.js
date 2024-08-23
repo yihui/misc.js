@@ -38,12 +38,32 @@
     if (box.scrollHeight > H) {
       const box2 = tpl.cloneNode(true), box_body2 = box2.children[1];
       box.after(box2);
-      // if there's more than one child in the box, move the last child out
+      // if there's more than one child in the box, move the last child to next box
       box_body.childElementCount > 1 && box_body2.append(box_body.lastElementChild);
       [box, box_body] = [box2, box_body2];
     }
     box_body.append(el);
-    return box;
+    return fragment(el);
+  }
+  // break elements that are relatively easy to break (such as <ul>)
+  function fragment(el) {
+    if (box.scrollHeight <= H || el.tagName !== 'UL' || el.childElementCount <= 1)
+      return box;
+    const box_cur = box, el2 = el.cloneNode();  // shallow clone (wrapper only)
+    // add the clone to current box, and move original el to next box
+    box_body.append(el2); box_cur.after(newPage()); box_body.append(el);
+    // keep moving el's first item to el2 until page height > H
+    while (true) {
+      const item = el.firstChild;
+      if (!item) break;
+      el2.append(item);
+      if (box_cur.scrollHeight > H) {
+        el.insertAdjacentElement('afterbegin', item);
+        break;
+      }
+    }
+    el2.lastChild || el2.remove();  // remove the clone if empty
+    return fragment(el);
   }
 
   // use data-short-title of a header if exists, and fall back to inner text
