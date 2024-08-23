@@ -4,7 +4,7 @@ npm install lightningcss-cli terser -g
 
 cd js
 for i in *.js; do
-  terser $i --compress --mangle --output ${i%.*}.min.js
+  terser $i --compress --mangle --source-map --output ${i%.*}.min.js
 done
 
 cd ../css
