@@ -159,13 +159,8 @@
     margin: 0;
     gap: 0;
     .page-multiple {
-      padding: 0 var(--paper-margin-right) 0 var(--paper-margin-left);
-      .pagesjs-header {
-        margin-top: calc(0 - var(--page-header-bottom) - var(--page-header-height));
-      }
-      .pagesjs-footer {
-        margin-bottom: calc(0 - var(--page-footer-top) - var(--page-footer-height));
-      }
+      padding-top: 0
+      padding-bottom: 0;
     }
   }
 }
