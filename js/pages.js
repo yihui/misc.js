@@ -90,6 +90,7 @@
       el.classList.remove('side', 'side-left', 'side-right');
     });
 
+    cls.add('pagesjs-filling');
     // iteratively add elements to pages
     $$('.frontmatter, #TOC, .abstract').forEach(el => {
       book ? (box_body.append(el), box.after(newPage())) : fill(el);
@@ -101,6 +102,7 @@
       [...el.children].map(c => fill(c).classList.add(...extra));
       el.childElementCount === 0 && el.remove();
     });
+    cls.remove('pagesjs-filling');
     // clean up an empty div for books
     book && removeBlank(box.nextElementSibling);
 

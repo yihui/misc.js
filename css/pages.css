@@ -36,7 +36,7 @@
   }
   .pagesjs-page {
     width: var(--paper-width);
-    min-height: var(--paper-height);
+    height: var(--paper-height);
     padding: var(--paper-margin);
   	page-break-after: always;
     display: flex;
@@ -144,9 +144,11 @@
       background-color: white;
     }
     .page-multiple {
-      height: var(--paper-height);
       overflow-y: auto;
     }
+  }
+  .pagesjs-filling .pagesjs-page {
+    height: auto;
   }
 }
 @media print {
