@@ -32,7 +32,7 @@
   gap: 5mm;
   .pagesjs-page {
     width: var(--paper-width);
-    height: var(--paper-height);
+    min-height: var(--paper-height);
     padding: var(--paper-margin);
   	page-break-after: always;
     display: flex;
@@ -46,9 +46,6 @@
     }
     .chapter-before, .chapter-after {
       display: none;
-    }
-    .frontmatter, &.chapter {
-      min-height: unset;
     }
     #TOC {
       border: none;
@@ -136,12 +133,18 @@
   flex-grow: 1;
   position: relative;
 }
+.frontmatter, .chapter {
+  min-height: unset;
+  box-shadow: none;
+}
 @media only screen {
   .pagesjs {
     background-color: #f7f7f7;
     .pagesjs-page {
       background-color: white;
-      overflow-y: auto;
+    }
+    .page-multiple {
+      border: dashed 1px;
     }
   }
 }
