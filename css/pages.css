@@ -54,6 +54,16 @@
       border: none;
       padding: 0;
       margin-left: auto;
+      &::before {
+        content: "Contents";
+        display: block;
+        font-weight: bold;
+        font-size: 1.5em;
+        margin-bottom: 1em;
+      }
+      & > ul {
+        columns: 18em;
+      }
       a {
         display: flex;
         &::after {
