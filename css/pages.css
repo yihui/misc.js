@@ -147,8 +147,11 @@
       overflow-y: auto;
     }
   }
-  .pagesjs-filling .pagesjs-page {
-    height: auto;
+  .pagesjs-filling {
+    display: block;
+    .pagesjs-page {
+      height: auto;
+    }
   }
 }
 @media print {
