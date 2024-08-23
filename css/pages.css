@@ -144,7 +144,8 @@
       background-color: white;
     }
     .page-multiple {
-      border: dashed 1px;
+      height: var(--paper-height);
+      overflow-y: auto;
     }
   }
 }
