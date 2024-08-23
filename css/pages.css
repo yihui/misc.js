@@ -30,6 +30,10 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 5mm;
+  .frontmatter, .chapter {
+    min-height: unset;
+    box-shadow: none;
+  }
   .pagesjs-page {
     width: var(--paper-width);
     min-height: var(--paper-height);
@@ -132,10 +136,6 @@
 .pagesjs-body {
   flex-grow: 1;
   position: relative;
-}
-.frontmatter, .chapter {
-  min-height: unset;
-  box-shadow: none;
 }
 @media only screen {
   .pagesjs {
