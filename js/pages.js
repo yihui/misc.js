@@ -48,7 +48,7 @@
 
   // use data-short-title of a header if exists, and fall back to inner text
   function shortTitle(h) {
-    return h && (h.dataset['shortTitle'] || h.innerText);
+    return h && (h.dataset.shortTitle || h.innerText);
   }
   const main = shortTitle($('h1.title, .frontmatter h1, .title, h1')),  // main title
     ps = (book ? 'h1' : 'h2') + ':not(.frontmatter *)',  // page title selector
@@ -61,7 +61,7 @@
   // an estimate; if not accurate, use <div class="pagesjs-page" data-pages-offset="N">
   // to provide a number manually)
   function calcPages(box) {
-    let n = +box.dataset['pagesOffset'];
+    let n = +box.dataset.pagesOffset;
     if (n) return n;
     const h = box.scrollHeight;
     n = Math.ceil(h/H);
@@ -114,7 +114,7 @@
       n?.classList.contains('section-number') ? n.after(s) : a.insertAdjacentElement('afterbegin', s);
       while (s.nextSibling) s.append(s.nextSibling);
       a.insertAdjacentHTML('beforeend', '<span class="dot-leader"></span>');
-      a.dataset['pageNumber'] = '000';  // placeholder for page numbers
+      a.dataset.pageNumber = '000';  // placeholder for page numbers
     });
 
     // add page number, title, etc. to data-* attributes of page elements
@@ -143,7 +143,7 @@
     // add page numbers to TOC with data-* attributes
     $$('a[href^="#"]', toc).forEach(a => {
       const p = $(`.pagesjs-page:has(${a.getAttribute('href')}) .pagesjs-header`);
-      a.dataset['pageNumber'] = p ? p.dataset['pageNumber'] : '';
+      a.dataset.pageNumber = p ? p.dataset.pageNumber : '';
     });
   }
   addEventListener('beforeprint', paginate);
