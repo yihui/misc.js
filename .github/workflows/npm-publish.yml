@@ -9,11 +9,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          fetch-tags: true
       - uses: actions/setup-node@v4
         with:
           registry-url: 'https://registry.npmjs.org'
       - run: ./build.sh
-      - run: PREVIOUS_COMMIT=${{ github.event.before }} CURRENT_COMMIT=${{ github.sha }} ./purge.sh || true
+      - run: ./purge.sh || true
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
