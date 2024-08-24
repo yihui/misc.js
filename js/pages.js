@@ -123,11 +123,10 @@
       newPage(box);
       book && box.innerText !== '' && box.after(newPage());
       [...el.children].map(fill);
-      el.childElementCount === 0 && el.remove();
+      // clean up container and self if empty
+      removeBlank(el.parentNode); removeBlank(el);
     });
     cls.remove('pagesjs-filling');
-    // clean up an empty div for books
-    book && removeBlank(box.nextElementSibling);
 
     // add dot leaders to TOC
     const toc = $('#TOC');
