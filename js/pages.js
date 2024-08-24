@@ -110,7 +110,7 @@
     H = box.clientHeight || window.innerHeight;  // use window height if box height not specified
 
     // remove possible classes on TOC/footnotes that we don't need for printing
-    $$(':is(#TOC, .footnotes):is(.side-left, .side-right).side').forEach(el => {
+    $$(':is(#TOC, .footnotes, .chapter-before, .chapter-after):is(.side-left, .side-right).side').forEach(el => {
       el.classList.remove('side', 'side-left', 'side-right');
     });
 

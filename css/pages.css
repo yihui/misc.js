@@ -104,6 +104,15 @@
         }
       }
     }
+    &:has(.side-left, .embed-left) .pagesjs-body {
+      padding-left: 200px;
+    }
+    &:has(.side-right, .embed-right) .pagesjs-body {
+      padding-right: 200px;
+    }
+    .side {
+      background: none;
+    }
   }
 }
 .pagesjs-header, .pagesjs-footer {
