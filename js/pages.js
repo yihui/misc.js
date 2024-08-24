@@ -9,9 +9,10 @@
   tpl.innerHTML = `<div class="pagesjs-header"></div>
 <div class="pagesjs-body"></div>
 <div class="pagesjs-footer"></div>`;
-  let box, box_body, H;
+  let box, box_body, H, box_cls = [];
   function newPage(el) {
     box = el || tpl.cloneNode(true); box_body = box.children[1];
+    box_cls.length && box.classList.add(...box_cls);
     return box;
   }
   function removeBlank(el) {
@@ -23,32 +24,29 @@
   function fill(el) {
     // if the element is already a page, just use it as the box
     if (el.classList.contains('pagesjs-page')) {
-      box.after(el);
+      box.after(newPage(el));
       !$('.pagesjs-body', el) && el.insertAdjacentHTML('afterbegin', tpl.innerHTML);
       // if current element is not empty, fill its content into the box
       if (el.childElementCount > 3) {
-        el.children[1].append(...[...el.children].slice(3));
-        el.after(newPage());  // create a new empty page
-      } else {
-        newPage(el);
+        box_body.append(...[...el.children].slice(3));
+        box.after(newPage());  // create a new empty page
       }
-      return el;
+      return;
     }
     // create a new box when too much content (exceeding original height)
     if (box.scrollHeight > H) {
-      const box2 = tpl.cloneNode(true), box_body2 = box2.children[1];
-      box.after(box2);
+      const [box2, box_body2] = [box, box_body];  // store old box
+      box2.after(newPage());
       // if there's more than one child in the box, move the last child to next box
-      box_body.childElementCount > 1 && box_body2.append(box_body.lastElementChild);
-      [box, box_body] = [box2, box_body2];
+      box_body2.childElementCount > 1 && box_body.append(box_body2.lastElementChild);
     }
     box_body.append(el);
-    return fragment(el);
+    fragment(el);
   }
   // break elements that are relatively easy to break (such as <ul>)
   function fragment(el) {
     if (box.scrollHeight <= H || el.tagName !== 'UL' || el.childElementCount <= 1)
-      return box;
+      return;
     const box_cur = box, el2 = el.cloneNode();  // shallow clone (wrapper only)
     // add the clone to current box, and move original el to next box
     box_body.append(el2); box_cur.after(newPage()); box_body.append(el);
@@ -63,7 +61,7 @@
       }
     }
     el2.lastChild || el2.remove();  // remove the clone if empty
-    return fragment(el);
+    fragment(el);
   }
 
   // use data-short-title of a header if exists, and fall back to inner text
@@ -117,9 +115,10 @@
     });
     $$('.body').forEach(el => {
       // preserve book chapter classes if exist
-      const extra = ['chapter', 'appendix'].filter(i => el.classList.contains(i));
+      box_cls = ['chapter', 'appendix'].filter(i => el.classList.contains(i));
+      newPage(box);
       book && box.innerText !== '' && box.after(newPage());
-      [...el.children].map(c => fill(c).classList.add(...extra));
+      [...el.children].map(fill);
       el.childElementCount === 0 && el.remove();
     });
     cls.remove('pagesjs-filling');
