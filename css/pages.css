@@ -55,7 +55,7 @@
       border: none;
       padding: 0;
       margin-left: auto;
-      &::before {
+      &:not(.pagesjs-page:has(#TOC) ~ .pagesjs-page *)::before {
         content: "Contents";
         display: block;
         font-weight: bold;
