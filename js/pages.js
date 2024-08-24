@@ -29,6 +29,7 @@
       // if current element is not empty, fill its content into the box
       if (el.childElementCount > 3) {
         box_body.append(...[...el.children].slice(3));
+        // TODO: should we fragment this page if it's too long?
         box.after(newPage());  // create a new empty page
       }
       return;
@@ -44,24 +45,29 @@
     fragment(el);
   }
   // break elements that are relatively easy to break (such as <ul>)
-  function fragment(el) {
-    if (box.scrollHeight <= H || el.tagName !== 'UL' || el.childElementCount <= 1)
-      return;
-    const box_cur = box, el2 = el.cloneNode();  // shallow clone (wrapper only)
+  function fragment(el, container, parent, page) {
+    if (box.scrollHeight <= H) return;
+    const box_cur = page || box, el2 = el.cloneNode();  // shallow clone (wrapper only)
     // add the clone to current box, and move original el to next box
-    box_body.append(el2); box_cur.after(newPage()); box_body.append(el);
+    container ? container.append(el2) : (
+      box_body.append(el2), box_cur.after(newPage()), box_body.append(el)
+    );
+    // for DIVs containing a single child (e.g., #TOC > ul), try to break the child
+    if (el.tagName === 'DIV' && el.childElementCount === 1) {
+      fragment(el.firstElementChild, el2, el, box_cur);
+    }
     // keep moving el's first item to el2 until page height > H
-    while (true) {
+    if (['UL', 'BLOCKQUOTE'].indexOf(el.tagName) > -1 && el.childElementCount > 1) while (true) {
       const item = el.firstChild;
       if (!item) break;
       el2.append(item);
       if (box_cur.scrollHeight > H) {
-        el.insertAdjacentElement('afterbegin', item);
+        el.insertBefore(item, el.firstChild);
         break;
       }
     }
     el2.lastChild || el2.remove();  // remove the clone if empty
-    fragment(el);
+    fragment(container ? parent : el);
   }
 
   // use data-short-title of a header if exists, and fall back to inner text
@@ -110,9 +116,7 @@
 
     cls.add('pagesjs-filling');
     // iteratively add elements to pages
-    $$('.frontmatter, #TOC, .abstract').forEach(el => {
-      book ? (box_body.append(el), box.after(newPage())) : fill(el);
-    });
+    $$('.frontmatter, #TOC, .abstract').forEach(el => (fill(el), book && box.after(newPage())));
     $$('.body').forEach(el => {
       // preserve book chapter classes if exist
       box_cls = ['chapter', 'appendix'].filter(i => el.classList.contains(i));
