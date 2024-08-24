@@ -11,6 +11,7 @@
 <div class="pagesjs-footer"></div>`;
   let box, box_body, H, box_cls = [];
   function newPage(el) {
+    el && !$('.pagesjs-body', el) && el.insertAdjacentHTML('afterbegin', tpl.innerHTML);
     box = el || tpl.cloneNode(true); box_body = box.children[1];
     box_cls.length && box.classList.add(...box_cls);
     return box;
@@ -25,7 +26,6 @@
     // if the element is already a page, just use it as the box
     if (el.classList.contains('pagesjs-page')) {
       box.after(newPage(el));
-      !$('.pagesjs-body', el) && el.insertAdjacentHTML('afterbegin', tpl.innerHTML);
       // if current element is not empty, fill its content into the box
       if (el.childElementCount > 3) {
         box_body.append(...[...el.children].slice(3));
