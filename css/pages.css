@@ -159,7 +159,7 @@
     margin: 0;
     gap: 0;
     .page-multiple {
-      padding-top: 0
+      padding-top: 0;
       padding-bottom: 0;
     }
   }
