@@ -81,6 +81,13 @@
         }
       }
     }
+    .fullwidth {
+      float: none;
+      max-width: none;
+      width: var(--paper-width);
+      margin-left: calc(0px - var(--paper-margin-left));
+      transform: none;
+    }
     .footnotes::before {
       content: "";
       display: block;
@@ -105,10 +112,13 @@
       }
     }
     &:has(.side-left, .embed-left) .pagesjs-body {
-      padding-left: 200px;
+      padding-left: var(--side-width);
+      .fullwidth {
+        transform: translate(calc(0px - var(--side-width));
+      }
     }
     &:has(.side-right, .embed-right) .pagesjs-body {
-      padding-right: 200px;
+      padding-right: var(--side-width);
     }
     .side {
       background: none;
