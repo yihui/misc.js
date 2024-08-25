@@ -10,6 +10,7 @@
   --page-header-bottom: 40px;
   --page-footer-height: 40px;
   --page-footer-top: 40px;
+  --side-width: var(--side-width, 200px);
 }
 @page {
   size: var(--paper-width) var(--paper-height);
