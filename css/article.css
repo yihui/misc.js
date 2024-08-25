@@ -41,13 +41,13 @@ body, blockquote, .side, .menu { background: #fafafa; }
 .side-left {
   float: left;
   clear: left;
-  margin-left: calc(0px -var(--side-width) - 2em);
+  margin-left: calc(0px - var(--side-width) - 2em);
   position: sticky;
 }
 .side-right {
   float: right;
   clear: right;
-  margin-right: calc(0px -var(--side-width) - 2em);
+  margin-right: calc(0px - var(--side-width) - 2em);
 }
 .quote-left, .quote-right { width: 45%; }
 .embed-left, .embed-right {
@@ -62,8 +62,8 @@ body, blockquote, .side, .menu { background: #fafafa; }
   float: right;
   margin-left: 1em;
 }
-.embed-left { margin-left: calc(0px -var(--side-width) - 2em); }
-.embed-right { margin-right: calc(0px -var(--side-width) - 2em); }
+.embed-left { margin-left: calc(0px - var(--side-width) - 2em); }
+.embed-right { margin-right: calc(0px - var(--side-width) - 2em); }
 .side > :first-child, .embed-left > :first-child, .embed-right > :first-child { margin-top: 0; }
 .embed-left > :last-child, .embed-right > :last-child { margin-bottom: 0; }
 .quote-left > :first-child, .quote-right > :first-child { padding-top: .1px; }
