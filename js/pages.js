@@ -142,7 +142,10 @@
     let page_title, i = 0;
     $$('.pagesjs-page').forEach(box => {
       if (removeBlank(box)) return;  // remove empty pages
-      book && $(ps, box) && (page_title = '');  // empty title for first page of chapter
+      if (book) {
+        if ($('.frontmatter', box)) return;  // skip book frontmatter page
+        $(ps, box) && (page_title = '');  // empty title for first page of chapter
+      }
       const N = calcPages(box);
       if (N > 1) box.classList.add('page-multiple');
       i += N;
