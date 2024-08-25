@@ -129,8 +129,7 @@
     cls.remove('pagesjs-filling');
 
     // add dot leaders to TOC
-    const toc = $('#TOC');
-    $$('a[href^="#"]', toc).forEach(a => {
+    $$('#TOC a[href^="#"]').forEach(a => {
       const s = d.createElement('span'),  // move TOC item content into a span
         n = a.firstElementChild;  // if first child is section number, exclude it
       n?.classList.contains('section-number') ? n.after(s) : a.insertAdjacentElement('afterbegin', s);
@@ -163,7 +162,7 @@
     });
 
     // add page numbers to TOC with data-* attributes
-    $$('a[href^="#"]', toc).forEach(a => {
+    $$('#TOC a[href^="#"]').forEach(a => {
       const p = $(`.pagesjs-page:has(${a.getAttribute('href')}) .pagesjs-header`);
       a.dataset.pageNumber = p ? p.dataset.pageNumber : '';
     });
