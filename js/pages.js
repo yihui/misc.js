@@ -120,8 +120,7 @@
     $$('.body').forEach(el => {
       // preserve book chapter classes if exist
       box_cls = ['chapter', 'appendix'].filter(i => el.classList.contains(i));
-      newPage(box);
-      book && box.innerText !== '' && box.after(newPage());
+      book && (box.innerText === '' ? newPage(box) : box.after(newPage()));
       [...el.children].map(fill);
       // clean up container and self if empty
       removeBlank(el.parentNode); removeBlank(el);
