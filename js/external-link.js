@@ -9,5 +9,5 @@
     if (a.childElementCount === 0 && r.test(a.innerText)) {
       a.innerText = a.innerText.replace(r, '').replace(/(.+)#.*$/, '$1');
     }
-  })
+  });
 })(document);

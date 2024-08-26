@@ -115,54 +115,58 @@ body, blockquote, .side, .menu { background: #fafafa; }
   }
 }
 @media (max-width: 1264px) {
-  #TOC {
-    border: 1px solid #eee;
-    border-radius: 5px;
-    padding: 1em;
-    position: initial;
-    float: none;
-    columns: 2;
-  }
-  .side { width: 100%; }
-  main .side, .body .side {
-    padding: 0 2em;
-    color: darkslategray;
-  }
-  .side-left, .side-right {
-    clear: both;
-    margin: 1em auto;
-    background: none;
-  }
-  :not(.note-ref) + .side { float: none; }
-  .footnote-ref + .footnotes { float: left; }
-  .side > :last-child { margin-bottom: 0; }
-  .embed-left, .embed-right {
-    float: inherit;
-    margin: auto;
-    padding: 1em;
+  body:not(.pagesjs) {
+    #TOC {
+      border: 1px solid #eee;
+      border-radius: 5px;
+      padding: 1em;
+      position: initial;
+      float: none;
+      columns: 2;
+    }
+    .side { width: 100%; }
+    main .side, .body .side {
+      padding: 0 2em;
+      color: darkslategray;
+    }
+    .side-left, .side-right {
+      clear: both;
+      margin: 1em auto;
+      background: none;
+    }
+    :not(.note-ref) + .side { float: none; }
+    .footnote-ref + .footnotes { float: left; }
+    .side > :last-child { margin-bottom: 0; }
+    .embed-left, .embed-right {
+      float: inherit;
+      margin: auto;
+      padding: 1em;
+    }
   }
 }
 @media (max-width: 800px) {
-  body { padding: initial; }
-  main, .body { padding: 0 .5em 0; }
-  #TOC { columns: 1; }
-  .quote-left, .quote-right {
-    width: inherit;
-    float: inherit;
-    margin: auto;
-  }
-  .fullwidth:not(.fullscroll) * { max-width: 100%; }
-  .fullwidth {
-    margin: initial;
-    transform: initial;
-    float: none;
-    min-width: initial;
-    background: none;
-    border: none;
-  }
-  .fullwidth figcaption, .fullwidth .caption {
-    margin: initial;
+  body:not(.pagesjs) {
     padding: initial;
+    main, .body { padding: 0 .5em 0; }
+    #TOC { columns: 1; }
+    .quote-left, .quote-right {
+      width: inherit;
+      float: inherit;
+      margin: auto;
+    }
+    .fullwidth:not(.fullscroll) * { max-width: 100%; }
+    .fullwidth {
+      margin: initial;
+      transform: initial;
+      float: none;
+      min-width: initial;
+      background: none;
+      border: none;
+    }
+    .fullwidth figcaption, .fullwidth .caption {
+      margin: initial;
+      padding: initial;
+    }
   }
 }
 
