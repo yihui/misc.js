@@ -40,7 +40,7 @@
       const [box2, box_body2] = [box, box_body];  // store old box
       box2.after(newPage());
       // if there's more than one child in the box, move the last child to next box
-      nChild(box_body2) > 1 && box_body.append(box_body2.lastElementChild);
+      nChild(box_body2) > 1 && box_body.append(box_body2.lastChild);
     }
     box_body.append(el);
     fragment(el);
