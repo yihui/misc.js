@@ -3,6 +3,7 @@
 (d => {
   function  $(s, el = d) { return el?.querySelector(s); }
   function $$(s, el = d) { return el ? el.querySelectorAll(s) : []; }
+  function nChild(el) { return el.childElementCount; }
 
   const tpl = d.createElement('div'), book = $$('h1').length > 1;
   tpl.className = 'pagesjs-page';
@@ -27,7 +28,7 @@
     if (el.classList.contains('pagesjs-page')) {
       box.after(newPage(el));
       // if current element is not empty, fill its content into the box
-      if (el.childElementCount > 3) {
+      if (nChild(el) > 3) {
         box_body.append(...[...el.children].slice(3));
         // TODO: should we fragment this page if it's too long?
         box.after(newPage());  // create a new empty page
@@ -39,7 +40,7 @@
       const [box2, box_body2] = [box, box_body];  // store old box
       box2.after(newPage());
       // if there's more than one child in the box, move the last child to next box
-      box_body2.childElementCount > 1 && box_body.append(box_body2.lastElementChild);
+      nChild(box_body2) > 1 && box_body.append(box_body2.lastElementChild);
     }
     box_body.append(el);
     fragment(el);
@@ -53,17 +54,17 @@
       box_body.append(el2), box_cur.after(newPage()), box_body.append(el)
     );
     // for DIVs containing a single child (e.g., #TOC > ul), try to break the child
-    if (el.tagName === 'DIV' && el.childElementCount === 1) {
+    if (el.tagName === 'DIV' && nChild(el) === 1) {
       fragment(el.firstElementChild, el2, el, box_cur);
     }
     // keep moving el's first item to el2 until page height > H
-    if (['UL', 'BLOCKQUOTE'].indexOf(el.tagName) > -1 && el.childElementCount > 1) while (true) {
+    if (['UL', 'BLOCKQUOTE'].indexOf(el.tagName) > -1 && nChild(el) > 1) while (true) {
       const item = el.firstChild;
       if (!item) break;
       el2.append(item);
       if (box_cur.scrollHeight > H) {
         // move item back to el if the clone el2 is not the only element on page or has more than one child
-        (el2.previousElementSibling || el2.childElementCount > 1) && el.insertBefore(item, el.firstChild);
+        (el2.previousElementSibling || nChild(el2) > 1) && el.insertBefore(item, el.firstChild);
         break;
       }
     }
