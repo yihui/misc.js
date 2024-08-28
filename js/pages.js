@@ -68,8 +68,8 @@
         break;
       }
     }
-    // keep fragmenting the remaining el if the clone is not empty, otherwise remove clone
-    el2.lastChild ? fragment(container ? parent : el) : el2.remove();
+    // if the clone is empty, remove it, otherwise keep fragmenting the remaining el
+    removeBlank(el2) || fragment(container ? parent : el);
   }
 
   // use data-short-title of a header if exists, and fall back to inner text
