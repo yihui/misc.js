@@ -150,6 +150,7 @@
       const N = calcPages(box);
       if (N > 1) box.classList.add('page-multiple');
       i += N;
+      box.classList.add(`page-${i % 2 === 0 ? 'even' : 'odd'}`);
       const info = {
         'pageNumber': i, 'mainTitle': main, 'pageTitle': page_title
       };
