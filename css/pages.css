@@ -111,13 +111,13 @@
       }
     }
     &:has(.side-left, .embed-left) .pagesjs-body {
-      padding-left: var(--side-width);
+      padding-left: calc(0px - var(--side-margin));
       .fullwidth {
         transform: translate(calc(0px - var(--side-width)));
       }
     }
     &:has(.side-right, .embed-right) .pagesjs-body {
-      padding-right: var(--side-width);
+      padding-right: calc(0px - var(--side-margin));
     }
     .side {
       background: none;
