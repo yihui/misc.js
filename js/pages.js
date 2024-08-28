@@ -68,8 +68,8 @@
         break;
       }
     }
-    el2.lastChild || el2.remove();  // remove the clone if empty
-    fragment(container ? parent : el);
+    // keep fragmenting the remaining el if the clone is not empty, otherwise remove clone
+    el2.lastChild ? fragment(container ? parent : el) : el2.remove();
   }
 
   // use data-short-title of a header if exists, and fall back to inner text
