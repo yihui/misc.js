@@ -5,7 +5,6 @@
   --paper-margin-right: 80px;
   --paper-margin-bottom: 40px;
   --paper-margin-left: 80px;
-  --paper-margin: var(--paper-margin-top) var(--paper-margin-right) var(--paper-margin-bottom) var(--paper-margin-left);
   --page-header-height: 40px;
   --page-header-bottom: 40px;
   --page-footer-height: 40px;
@@ -37,7 +36,7 @@
   .pagesjs-page {
     width: var(--paper-width);
     height: var(--paper-height);
-    padding: var(--paper-margin);
+    padding: var(--paper-margin-top) var(--paper-margin-right) var(--paper-margin-bottom) var(--paper-margin-left);
   	page-break-after: always;
     display: flex;
     flex-direction: column;
@@ -101,7 +100,7 @@
       }
       .frontmatter {
         margin: 0;
-        padding: var(--paper-margin);
+        padding: var(--paper-margin-top) var(--paper-margin-right) var(--paper-margin-bottom) var(--paper-margin-left);
         height: 100%;
         .title {
           margin-top: calc(0px - var(--paper-margin-top));
