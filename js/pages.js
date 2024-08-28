@@ -62,8 +62,8 @@
       if (!item) break;
       el2.append(item);
       if (box_cur.scrollHeight > H) {
-        // move item back to el, only if the clone el2 is not the only element on page
-        el2.previousElementSibling && el.insertBefore(item, el.firstChild);
+        // move item back to el if the clone el2 is not the only element on page or has more than one child
+        (el2.previousElementSibling || el2.childElementCount > 1) && el.insertBefore(item, el.firstChild);
         break;
       }
     }
