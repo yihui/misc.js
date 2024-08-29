@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 npm install lightningcss-cli terser -g
 
 cd js
