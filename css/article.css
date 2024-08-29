@@ -1,7 +1,7 @@
 :root {
   --side-width: 200px;
   --side-gap: 2em;
-  --side-margin: calc(0px - var(--side-width) - var(--side-gap);
+  --side-margin: calc(0px - var(--side-width) - var(--side-gap));
 }
 body, blockquote, .side, .menu { background: #fafafa; }
 .article-list, .body, .single main, .single .appendix, .body ~ .appendix, .frontmatter, .fullwidth, .embed-left, .embed-right {
