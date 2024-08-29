@@ -104,6 +104,9 @@
   }
 
   function paginate() {
+    // we need to wait for all resources to be fully loaded before paginating
+    if (d.readyState !== 'complete') return setTimeout(paginate, 10);
+
     const cls = d.body.classList;
     if (cls.contains('pagesjs')) return;  // already paginated
 
