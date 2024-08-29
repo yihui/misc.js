@@ -120,6 +120,7 @@
       padding-right: calc(0px - var(--side-margin));
     }
     .side {
+      font-size: .9em;
       background: none;
     }
   }
