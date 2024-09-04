@@ -121,7 +121,9 @@
 
     cls.add('pagesjs-filling');
     // iteratively add elements to pages
-    $$('.frontmatter, #TOC, .abstract').forEach(el => (fill(el), book && box.after(newPage())));
+    [$('.frontmatter'), $('#TOC'), $('.abstract')].forEach(el => {
+      el && (fill(el), book && box.after(newPage()));
+    });
     $$('.body').forEach(el => {
       // preserve book chapter classes if exist
       box_cls = ['chapter', 'appendix'].filter(i => el.classList.contains(i));
