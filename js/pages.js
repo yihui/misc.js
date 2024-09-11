@@ -57,6 +57,7 @@
     if (el.tagName === 'DIV' && nChild(el) === 1) {
       fragment(el.firstElementChild, el2, el, box_cur);
     }
+    const prev = el2.previousElementSibling;
     // keep moving el's first item to el2 until page height > H
     if (['UL', 'BLOCKQUOTE'].indexOf(el.tagName) > -1 && nChild(el) > 1) while (true) {
       const item = el.firstChild;
@@ -64,12 +65,12 @@
       el2.append(item);
       if (box_cur.scrollHeight > H) {
         // move item back to el if the clone el2 is not the only element on page or has more than one child
-        (el2.previousElementSibling || nChild(el2) > 1) && el.insertBefore(item, el.firstChild);
+        (prev || nChild(el2) > 1) && el.insertBefore(item, el.firstChild);
         break;
       }
     }
     // if the clone is empty, remove it, otherwise keep fragmenting the remaining el
-    removeBlank(el2) || fragment(container ? parent : el);
+    if (!removeBlank(el2) || prev) fragment(container ? parent : el);
   }
 
   // use data-short-title of a header if exists, and fall back to inner text
