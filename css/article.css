@@ -101,7 +101,7 @@ body, blockquote, .side, .menu { background: #fafafa; }
       margin-left: calc(-1em - 3px);
       padding-left: 1em;
     }
-    li:not(:has(.active)) ul {
+    &:has(.active) li:not(:has(.active)) ul {
       display: none;
     }
   }
