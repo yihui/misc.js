@@ -171,6 +171,9 @@
     .pagesjs-page {
       height: auto;
     }
+    .footnotes {
+      margin: 1em auto;
+    }
   }
 }
 @media print {
