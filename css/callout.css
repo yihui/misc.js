@@ -6,24 +6,39 @@ legend {
   font-weight: bold;
   border-style: groove;
   padding: 2px .5em;
+  background: white;
+}
+.callout {
+  legend::before {
+    content: var(--callout-icon);
+  }
+  legend::after {
+    content: attr(data-legend);
+    text-transform: uppercase;
+  }
+  background: var(--callout-background);
+  &, legend { border-color: var(--callout-border); }
 }
 .callout-tip {
-  border-color: #9eeaf9;
+  --callout-border: honeydew;
+  --callout-icon: "☆ ";
 }
 .callout-caution {
-  background: #fff3cd;
-  border-color: #fff3cd;
+  --callout-border: aqua;
+  --callout-background: azure;
+  --callout-icon: "☂ ";
 }
 .callout-important {
-  background: #f8d7da;
-  border-color: #f8d7da;
+  --callout-border: gold;
+  --callout-background: lemonchiffon;
+  --callout-icon: "☀ ";
 }
-.callout-tip legend::before {
-  content: "☆ ";
+.callout-note {
+  --callout-border: lightskyblue;
+  --callout-icon: "⚑ ";
 }
-.callout-caution legend::before {
-  content: "☂ ";
-}
-.callout-important legend::before {
-  content: "☀ ";
+.callout-warning {
+  --callout-border: salmon;
+  --callout-background: mistyrose;
+  --callout-icon: "⚠ ";
 }
