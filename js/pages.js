@@ -47,19 +47,24 @@
   }
   // break elements that are relatively easy to break (such as <ul>)
   function fragment(el, container, parent, page) {
-    if (box.scrollHeight <= H) return;
+    const tag = el.tagName, is_code = tag === 'CODE';
+    // if <code>, keep fragmenting; otherwise exit when box fits
+    if (!(is_code && container) && box.scrollHeight <= H) return;
     const box_cur = page || box, el2 = el.cloneNode();  // shallow clone (wrapper only)
     // add the clone to current box, and move original el to next box
     container ? container.append(el2) : (
       box_body.append(el2), box_cur.after(newPage()), box_body.append(el)
     );
-    // for DIVs containing a single child (e.g., #TOC > ul), try to break the child
-    if (el.tagName === 'DIV' && nChild(el) === 1) {
+    // fragment <pre>'s <code> and <div>'s single child (e.g., #TOC > ul)
+    if (tag === 'PRE') {
+      const code = el.firstElementChild;
+      code?.tagName == 'CODE' && /\n/.test(code.innerHTML) && fragment(code, el2, el, box_cur);
+    } else if (tag === 'DIV' && nChild(el) === 1) {
       fragment(el.firstElementChild, el2, el, box_cur);
     }
     const prev = el2.previousElementSibling;
     // keep moving el's first item to el2 until page height > H
-    if (['UL', 'BLOCKQUOTE'].indexOf(el.tagName) > -1 && nChild(el) > 1) while (true) {
+    if (['UL', 'BLOCKQUOTE'].indexOf(tag) > -1 && nChild(el) > 1) while (true) {
       const item = el.firstChild;
       if (!item) break;
       el2.append(item);
@@ -69,8 +74,23 @@
         break;
       }
     }
+    // split lines in <code> and try to move them into el2 line by line
+    if (is_code) {
+      const code = el.innerHTML.split('\n'), code2 = [];
+      for (let i of code) {
+        code2.push(i); el2.innerHTML = code2.join('\n');
+        if (box_cur.scrollHeight > H) {
+          code2.pop(); el2.innerHTML = code2.join('\n');
+          break;
+        }
+      }
+      if (code2.length > 0) {
+        el.innerHTML = code.slice(code2.length).join('\n');
+        if (removeBlank(parent)) return;  // exit if <pre> is empty
+      }
+    }
     // if the clone is empty, remove it, otherwise keep fragmenting the remaining el
-    if (!removeBlank(el2) || prev) fragment(container ? parent : el);
+    if (!removeBlank(el2) || is_code || prev) fragment(container ? parent : el);
   }
 
   // use data-short-title of a header if exists, and fall back to inner text
