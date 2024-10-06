@@ -64,7 +64,7 @@
     }
     const prev = el2.previousElementSibling;
     // keep moving el's first item to el2 until page height > H
-    if (['UL', 'BLOCKQUOTE'].indexOf(tag) > -1 && nChild(el) > 1) while (true) {
+    if (['UL', 'BLOCKQUOTE'].includes(tag) && nChild(el) > 1) while (true) {
       const item = el.firstChild;
       if (!item) break;
       el2.append(item);
