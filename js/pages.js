@@ -194,7 +194,8 @@
 
     // add page numbers to TOC with data-* attributes
     $$('#TOC a[href^="#"]').forEach(a => {
-      const p = $(`.pagesjs-page:has(${a.getAttribute('href')}) .pagesjs-header`);
+      const id = CSS.escape(a.getAttribute('href').replace(/^#/, '')),
+        p = $(`.pagesjs-page:has(#${id}) .pagesjs-header`);
       a.dataset.pageNumber = p ? p.dataset.pageNumber : '';
     });
   }
