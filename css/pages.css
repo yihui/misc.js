@@ -172,9 +172,9 @@
     display: block;
     .pagesjs-page {
       height: auto;
-    }
-    .footnotes {
-      margin: 2em auto 1em;
+      .pagesjs-body:has(.footnotes) {
+        margin-bottom: 1em;
+      }
     }
   }
 }
