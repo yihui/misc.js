@@ -42,3 +42,7 @@ legend {
   --callout-background: mistyrose;
   --callout-icon: "⚠ ";
 }
+.callout-example {
+  --callout-border: mintcream;
+  --callout-icon: "♧ ";
+}
