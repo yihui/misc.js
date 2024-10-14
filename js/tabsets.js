@@ -14,9 +14,16 @@ document.querySelectorAll('.tabset').forEach(h => {
     el.className = cls;
     return el;
   }
-  let n = -1, el = h.nextElementSibling, p;
-  // if the first sibling is <ul>, try to convert it to tabset
-  if (links.length === 0 && el.tagName === 'UL') {
+  function isHeading(el) {
+    return /^H[1-6]$/.test(el.tagName);
+  }
+  function isEmpty(el) {
+    return el.innerHTML.trim() === '';
+  }
+  // if the tabset is heading or empty div, use next sibling, otherwise use first child
+  let n = -1, p, el = (isHeading(h) || isEmpty(h)) ? h.nextElementSibling : h.firstElementChild;
+  // if el is <ul>, try to convert it to tabset
+  if (links.length === 0 && el?.tagName === 'UL') {
     [...el.children].forEach(li => {
       const l = li.firstElementChild;
       if (!l) return;
@@ -38,7 +45,7 @@ document.querySelectorAll('.tabset').forEach(h => {
     if (el.nodeName === '#comment' && el.nodeValue.trim() === `tabset:${h.id}`)
       break;  // quit after <!--tabset:id-->
     const t = el.tagName;
-    if (/^H[1-6]$/.test(t)) {
+    if (isHeading(t)) {
       const n2 = +t.replace('H', '');
       if (n2 <= n) break;  // quit after a higher-level heading
       if (n < 0) n = n2 - 1;
@@ -62,7 +69,7 @@ document.querySelectorAll('.tabset').forEach(h => {
     el = el.nextSibling;
   }
   // if the initial tabset container is empty, move links and panes into it
-  if (h.innerText.trim() == '') {
+  if (isEmpty(h)) {
     links.forEach(l => h.append(l));
     panes.forEach(p => h.append(p));
   }
