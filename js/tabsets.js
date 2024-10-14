@@ -44,9 +44,8 @@ document.querySelectorAll('.tabset').forEach(h => {
     // convert headings to tabs
     if (el.nodeName === '#comment' && el.nodeValue.trim() === `tabset:${h.id}`)
       break;  // quit after <!--tabset:id-->
-    const t = el.tagName;
-    if (isHeading(t)) {
-      const n2 = +t.replace('H', '');
+    if (isHeading(el)) {
+      const n2 = +el.tagName.replace('H', '');
       if (n2 <= n) break;  // quit after a higher-level heading
       if (n < 0) n = n2 - 1;
       // find the next lower-level heading and start creating a tab
