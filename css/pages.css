@@ -47,7 +47,7 @@
     pre {
       white-space: pre-wrap;
     }
-    .chapter-before, .chapter-after, .pencil:has(+ .chapter-before) {
+    .chapter-before, .chapter-after, .buttons:has(+ .chapter-before) {
       display: none;
     }
     #TOC {
