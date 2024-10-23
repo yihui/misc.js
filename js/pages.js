@@ -64,13 +64,15 @@
     }
     const prev = el2.previousElementSibling;
     // keep moving el's first item to el2 until page height > H
-    if (['UL', 'BLOCKQUOTE'].includes(tag) && nChild(el) > 1) while (true) {
+    if (['UL', 'OL', 'BLOCKQUOTE'].includes(tag) && nChild(el) > 1) while (true) {
       const item = el.firstChild;
       if (!item) break;
       el2.append(item);
       if (box_cur.scrollHeight > H) {
         // move item back to el if the clone el2 is not the only element on page or has more than one child
         (prev || nChild(el2) > 1) && el.insertBefore(item, el.firstChild);
+        // update the start number of <ol> on next page
+        tag === 'OL' && (el.start += nChild(el2));
         break;
       }
     }
