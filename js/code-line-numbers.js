@@ -2,8 +2,7 @@
 (() => {
   function addNum(el) {
     const s = '<span data-line-number=""></span>', sel = 'span[data-line-number]';
-    if (!el.classList.contains('line-numbers') || el.parentNode.tagName !== 'PRE'
-        || el.querySelector(sel)) return;
+    if (el.querySelector(sel)) return;
     el.innerHTML = s + el.innerHTML.replace(/\n(?=.|\s)/g, '\n' + s);
     let n1 = +el.dataset.start; if (isNaN(n1)) n1 = 1;
     const spans = el.querySelectorAll(sel), w = ('' + (n1 - 1 + spans.length)).length;
@@ -13,9 +12,5 @@
       sp.dataset.lineNumber = n;
     });
   }
-  function addAll(e) {
-    e ? (e.grammar && addNum(e.element)) :
-      document.querySelectorAll('pre > code.line-numbers:first-child').forEach(addNum);
-  }
-  window.Prism?.hooks ? Prism.hooks.add('complete', addAll) : addAll();
+  addEventListener('load', e => document.querySelectorAll('pre > code.line-numbers:first-child').forEach(addNum));
 })();
