@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yihui/misc.js.git"
+    "url": "git+https://github.com/yihui/lite.js.git"
   },
   "keywords": [
     "html",
@@ -21,7 +21,7 @@
   "author": "Yihui Xie <xie@yihui.name> (https://yihui.org)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yihui/misc.js/issues"
+    "url": "https://github.com/yihui/lite.js/issues"
   },
-  "homepage": "https://github.com/yihui/misc.js#readme"
+  "homepage": "https://github.com/yihui/lite.js#readme"
 }

@@ -1,8 +1,8 @@
 [![jsdelivr
 badge](https://data.jsdelivr.com/v1/package/npm/@xiee/utils/badge)](https://www.jsdelivr.com/package/npm/@xiee/utils)
 
-This repo contains miscellaneous tools and utilities written in JavaScript. They
-are published as an NPM package
+This repo contains miscellaneous lightweight tools and utilities written in
+JavaScript. They are published as an NPM package
 [`@xiee/utils`](https://www.npmjs.com/package/@xiee/utils). You can load them
 via [jsdelivr.com](https://www.jsdelivr.com), e.g.,
 
