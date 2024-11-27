@@ -23,13 +23,20 @@ body {
     margin-top: -1em;
   }
 }
-#TOC {
+#TOC.side {
   margin-left: calc(-200px - .8em);
 }
 @media (max-width: 1264px) {
-  #TOC {
+  #TOC.side {
     margin-left: auto;
   }
+}
+.chapter-toc {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 1em;
+  columns: 2;
+  margin-bottom: 2em;
 }
 .chapter:not(.appendix) .main-number {
   &::before {
