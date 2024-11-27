@@ -1,0 +1,38 @@
+/* CSS for https://yihui.org/litedown/ */
+
+/* hide 4th-level TOC items when printing to PDF */
+.pagesjs #TOC > ul > li > ul > li > ul > li > ul {
+  display: none;
+}
+
+/* a tale of two buttons */
+.new-road {
+  p {
+    display: flex;
+    justify-content: center;
+    gap: .5em;
+  }
+  button::before { font-size: 200%; }
+  .old-knit, .new-fuse {
+    &:hover::before { content: "❓ "; }
+  }
+  .old-knit {
+    &::before { content: "🧶 "; }
+    &:focus::before { content: "😡 "; }
+  }
+  .new-fuse::before { content: "↯ "; }
+  .new-preview::before { content: "⏵ "; }
+  .new-fuse:focus::before { content: "😇 "; }
+}
+
+/* arrange elements in columns */
+.flex-col {
+  display: flex;
+  justify-content: space-between;
+  gap: .5em;
+  * {
+    flex: 1;
+  }
+}
+
+.larger { font-size: 1.5em; }
