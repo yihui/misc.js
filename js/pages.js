@@ -5,7 +5,7 @@
   function $$(s, el = d) { return el ? el.querySelectorAll(s) : []; }
   function nChild(el) { return el.childElementCount; }
 
-  const tpl = d.createElement('div'), book = $$('h1').length > 1;
+  const tpl = d.createElement('div'), book = $$('h1').length > 1, fr_cls = 'pagesjs-fragmented';
   tpl.className = 'pagesjs-page';
   tpl.innerHTML = `<div class="pagesjs-header"></div>
 <div class="pagesjs-body"></div>
@@ -50,6 +50,7 @@
     const tag = el.tagName, is_code = tag === 'CODE';
     // if <code>, keep fragmenting; otherwise exit when box fits
     if (!(is_code && container) && box.scrollHeight <= H) return;
+    el.classList.add(fr_cls);
     const box_cur = page || box, el2 = el.cloneNode();  // shallow clone (wrapper only)
     // add the clone to current box, and move original el to next box
     container ? container.append(el2) : (
@@ -91,8 +92,10 @@
         if (removeBlank(parent)) return;  // exit if <pre> is empty
       }
     }
+    const el2_empty = removeBlank(el2);
     // if the clone is empty, remove it, otherwise keep fragmenting the remaining el
-    if (!removeBlank(el2) || is_code || prev) fragment(container ? parent : el);
+    el2_empty && el.classList.remove(fr_cls);
+    if (!el2_empty || is_code || prev) fragment(container ? parent : el);
   }
 
   // use data-short-title of a header if exists, and fall back to inner text
