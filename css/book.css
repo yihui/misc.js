@@ -2,7 +2,7 @@ body {
   font-size: 1em;
   font-family: Palatino, Georgia, serif;
 }
-.footnotes, code, .side, .body .side {
+.footnotes, code, .side, .body .side, .chapter-toc {
   font-size: .85em;
 }
 .frontmatter, .chapter {
@@ -29,6 +29,11 @@ body {
 @media (max-width: 1264px) {
   #TOC.side {
     margin-left: auto;
+  }
+}
+@media (min-width: 1264.02px) {
+  body:not(.pagesjs) .chapter-toc {
+    display: none;
   }
 }
 .chapter-toc {
