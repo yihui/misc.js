@@ -34,7 +34,7 @@ table {
   border-top: 1px solid #666;
   thead th { border-bottom: 1px solid #ddd; }
   th, td { padding: 5px; font-variant-numeric: tabular-nums; }
-  thead, tfoot, tr:nth-child(even) { background: #eee; }
+  thead, tfoot, tr:nth-child(even) { background: whitesmoke; }
 }
 .table-full {
   width: 100%;
