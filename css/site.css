@@ -24,12 +24,9 @@ nav a:hover {
   box-shadow: none;
   margin-top: auto;
 }
-.frontmatter, .appendix {
-  border: 1px dotted;
-}
 .frontmatter {
-  border-bottom: none;
+  background: linear-gradient(0, white, aliceblue);
 }
-.appendix {
-  border-top: none;
+.body ~ .appendix {
+  background: linear-gradient(0, whitesmoke, white);
 }
