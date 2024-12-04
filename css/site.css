@@ -4,6 +4,9 @@ nav > p:last-child {
 footer {
   border-top: 1px dashed #666;
   margin-top: 2em;
+  .flex-col {
+    gap: 2em;
+  }
 }
 nav a, footer a {
   text-decoration: none;
@@ -17,7 +20,16 @@ nav a {
 nav a:hover {
   filter: invert(1);
 }
-.body, .frontmatter {
+.body, .frontmatter, .body ~ .appendix {
   box-shadow: none;
   margin-top: auto;
+}
+.frontmatter, .appendix {
+  border: 1px dotted;
+}
+.frontmatter {
+  border-bottom: none;
+}
+.appendix {
+  border-top: none;
 }
