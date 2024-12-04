@@ -54,6 +54,9 @@ body {
 .chapter h1 {
   margin: 1em auto 3em;
   border-bottom: 1px solid;
+  &:has(+ .epigraph) {
+    margin-bottom: 2em;
+  }
 }
 h1 .section-number {
   display: inline-block;

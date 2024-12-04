@@ -8,6 +8,7 @@
 .epigraph {
   position: relative;
   padding: 5px;
+  margin-bottom: 4em;
   &, blockquote {
     border: 1px solid;
   }
