@@ -27,6 +27,7 @@
   }
   &::after {
     content: "❀";
+    color: rebeccapurple;
     font-size: 3em;
     text-align: right;
     border: none;
