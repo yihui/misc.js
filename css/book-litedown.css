@@ -5,6 +5,44 @@
   display: none;
 }
 
+.epigraph {
+  position: relative;
+  padding: 5px;
+  &, blockquote {
+    border: 1px solid;
+  }
+  &::before, &::after, blockquote::before, blockquote::after {
+    content: "•";
+    position: absolute;
+    border: 1px solid;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    line-height: 1;
+  }
+  &::before {
+    left: 5px;
+  }
+  &::after {
+    content: "❀";
+    font-size: 3em;
+    text-align: right;
+    border: none;
+    opacity: .2;
+    inset: 5px 5px auto auto;
+  }
+  blockquote {
+    padding: 1em;
+    &::before {
+      inset: auto auto 5px 5px;
+    }
+    &::after {
+      inset: auto 5px 5px auto;
+    }
+  }
+}
+
 /* a tale of two buttons */
 .new-road {
   p {
