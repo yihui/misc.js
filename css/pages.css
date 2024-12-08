@@ -114,7 +114,7 @@
     &:has(.side-left, .embed-left) .pagesjs-body {
       padding-left: calc(0px - var(--side-margin));
       .fullwidth {
-        transform: translate(calc(0px - var(--side-width)));
+        transform: translate(var(--side-margin));
       }
     }
     &:has(.side-right, .embed-right) .pagesjs-body {
