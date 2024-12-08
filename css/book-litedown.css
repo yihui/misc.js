@@ -113,6 +113,9 @@ pre:has(code[data-file]) {
   &:has(code[data-file$=".Rmd"])::before {
     content: "♧ Example";
   }
+  &:has(code[data-source])::before {
+    content: "♧ Source";
+  }
   &.pagesjs-fragmented:first-child {
     &::before, code::before {
       content: unset;
