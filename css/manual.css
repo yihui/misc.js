@@ -1,0 +1,17 @@
+/* mainly for litedown::pkg_manual() */
+.table-full {
+  width: 100%;
+  td {
+    vertical-align: baseline;
+    & > p {
+      &:first-child { margin-top: 0; }
+      &:last-child { margin-bottom: 0; }
+    }
+  }
+}
+@media only screen {
+  body:not(.pagesjs) pre:not([class]) {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+}

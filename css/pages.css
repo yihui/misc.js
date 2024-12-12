@@ -45,9 +45,6 @@
     img {
       max-width: 100%;
     }
-    pre {
-      white-space: pre-wrap;
-    }
     .chapter-before, .chapter-after, .buttons:has(+ .chapter-before) {
       display: none;
     }
