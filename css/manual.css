@@ -9,6 +9,12 @@
     }
   }
 }
+code.fade::before {
+  content: "🚫";
+  float: right;
+  font-size: 1.5em;
+  line-height: 1;
+}
 @media only screen {
   body:not(.pagesjs) pre:not([class]) {
     max-height: 300px;
