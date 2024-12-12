@@ -3,16 +3,15 @@
   --side-gap: 2em;
   --side-margin: calc(0px - var(--side-width) - var(--side-gap));
 }
-body, blockquote, .side, .menu { background: #fafafa; }
-.article-list, .body, .single main, .single .appendix, .body ~ .appendix, .frontmatter, .fullwidth, .embed-left, .embed-right {
+body, blockquote, .side { background: #fafafa; }
+.body, .body ~ .appendix, .frontmatter, .fullwidth, .embed-left, .embed-right {
   margin-top: 2em;
   padding: 1em;
   box-shadow: 0 0 8px #ccc;
   background: #fff;
 }
-.article-meta { background: #f8f8f8; }
-.article-meta .terms, .appendix, .footnotes, main .side > *, .body .side, figcaption, .caption { font-size: .9em; }
-.single .appendix, .body ~ .appendix, .frontmatter { background: none; }
+.appendix, .footnotes, .body .side { font-size: .9em; }
+.body ~ .appendix, .frontmatter { background: none; }
 .appendix h2 { border-bottom: 1px dashed #666; }
 #TOC {
   top: 0;
@@ -72,26 +71,29 @@ body, blockquote, .side, .menu { background: #fafafa; }
 }
 
 /* wide elements */
-.fullwidth, .fullwidth * { margin: auto 0; }
-.fullwidth * { max-width: calc(100vw - 4em); }
-.fullscroll * { max-width: initial; }
 .fullwidth {
   max-width: calc(100vw - 2em);
   margin: 1em 0 1em 50%;
+  & * {
+    max-width: calc(100vw - 4em);
+    margin: auto 0;
+  }
   transform: translateX(-50%);
   float: left;
   min-width: 100%;
   background: #fff;
+  & :is(figcaption, .caption) {
+    margin-left: calc(50% - 400px);
+    width: 800px;
+    padding: 1em 1em 0;
+  }
 }
-.fullscroll, .fullscroll figure, .fullscroll .figure { overflow-x: auto; }
-.fullwidth figcaption, .fullwidth .caption {
-  margin-left: calc(50% - 400px);
-  width: 800px;
-  padding: 1em 1em 0;
+.fullscroll {
+  & * { max-width: initial; }
+  &, & figure, & .figure { overflow-x: auto; }
 }
 
 @media (min-width: 1264.02px) {
-  .article, .body, .appendix { position: relative; }
   #TOC.side {
     .active {
       color: limegreen;
@@ -127,7 +129,7 @@ body, blockquote, .side, .menu { background: #fafafa; }
       columns: 2;
     }
     .side { width: 100%; }
-    main .side, .body .side {
+    :is(main, .body) .side {
       padding: 0 2em;
       color: darkslategray;
     }
@@ -156,7 +158,6 @@ body, blockquote, .side, .menu { background: #fafafa; }
       float: inherit;
       margin: auto;
     }
-    .fullwidth:not(.fullscroll) * { max-width: 100%; }
     .fullwidth {
       margin: initial;
       transform: initial;
@@ -164,10 +165,11 @@ body, blockquote, .side, .menu { background: #fafafa; }
       min-width: initial;
       background: none;
       border: none;
-    }
-    .fullwidth figcaption, .fullwidth .caption {
-      margin: initial;
-      padding: initial;
+      & :is(figcaption, .caption) {
+        margin: initial;
+        padding: initial;
+      }
+      &:not(.fullscroll) * { max-width: 100%; }
     }
   }
 }
