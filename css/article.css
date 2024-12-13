@@ -22,7 +22,6 @@ body, blockquote, .side { background: #fafafa; }
   }
   li > ul { padding-left: 1em; }
   .numbered { list-style: none; }
-  a { text-decoration: none; }
   ul ul { border-left: 1px solid lightsteelblue; }
 }
 .bg-number {

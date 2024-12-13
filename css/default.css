@@ -46,9 +46,12 @@ blockquote {
 }
 hr, .footnotes::before { border: 1px dashed #ddd; }
 .frontmatter { text-align: center; }
-#TOC .numbered {
-  padding-left: 0;
-  li { list-style: none; }
+#TOC {
+  a { text-decoration: none; }
+  .numbered {
+    padding-left: 0;
+    li { list-style: none; }
+  }
   ul { padding-left: 1em; }
 }
 table, .body h2 { border-bottom: 1px solid #666; }
