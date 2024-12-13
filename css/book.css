@@ -65,3 +65,21 @@ h1 .section-number {
 }
 .body h2 { border-bottom-style: dashed; }
 /* TODO: style for h1.part and printing */
+
+.pagesjs .pagesjs-page:first-child:has(.frontmatter) {
+  padding: 0;
+  .pagesjs-header, .pagesjs-footer {
+    display: none;
+  }
+  .frontmatter {
+    margin: 0;
+    padding: var(--paper-margin-top) var(--paper-margin-right) var(--paper-margin-bottom) var(--paper-margin-left);
+    height: 100%;
+    .title {
+      margin-top: calc(0px - var(--paper-margin-top));
+    }
+    & > div {
+      margin: 0 calc(0px - var(--paper-margin-right)) 0 calc(0px - var(--paper-margin-left));
+    }
+  }
+}

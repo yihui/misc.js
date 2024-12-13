@@ -136,7 +136,7 @@
     const cls = d.body.classList;
     if (cls.contains('pagesjs')) return;  // already paginated
 
-    cls.add('pagesjs'); book && cls.add('page-book');
+    cls.add('pagesjs');
     d.body.insertAdjacentElement('afterbegin', newPage());
     H = box.clientHeight || window.innerHeight;  // use window height if box height not specified
 

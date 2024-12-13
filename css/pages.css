@@ -91,23 +91,6 @@
       max-width: 20em;
       border-top: solid 1px;
     }
-    &:first-child:is(.page-book *) {
-      padding: 0;
-      .pagesjs-header, .pagesjs-footer {
-        display: none;
-      }
-      .frontmatter {
-        margin: 0;
-        padding: var(--paper-margin-top) var(--paper-margin-right) var(--paper-margin-bottom) var(--paper-margin-left);
-        height: 100%;
-        .title {
-          margin-top: calc(0px - var(--paper-margin-top));
-        }
-        & > div {
-          margin: 0 calc(0px - var(--paper-margin-right)) 0 calc(0px - var(--paper-margin-left));
-        }
-      }
-    }
     &:has(.side-left, .embed-left) .pagesjs-body {
       padding-left: calc(0px - var(--side-margin));
       .fullwidth {
