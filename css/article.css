@@ -13,17 +13,7 @@ body, blockquote, .side { background: #fafafa; }
 .appendix, .footnotes, .body .side { font-size: .9em; }
 .body ~ .appendix, .frontmatter { background: none; }
 .appendix h2 { border-bottom: 1px dashed #666; }
-#TOC {
-  top: 0;
-  ul { list-style-position: inside; }
-  & > ul {
-    padding: 0;
-    margin: 0;
-  }
-  li > ul { padding-left: 1em; }
-  .numbered { list-style: none; }
-  ul ul { border-left: 1px solid lightsteelblue; }
-}
+#TOC { top: 0; }
 .bg-number {
   padding: 1px 5px;
   border-radius: 5px;
