@@ -21,3 +21,8 @@ code.fade::before {
     overflow-y: auto;
   }
 }
+.orcid {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+}
